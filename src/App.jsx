@@ -129,7 +129,7 @@ export default function App() {
   const handleExportPng = useCallback(() => {
     const FONT_SIZE = 14;
     const LINE_HEIGHT = 20;
-    const FONT_FAMILY = "'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace";
+    const FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif";
     const measureCanvas = document.createElement('canvas');
     const mctx = measureCanvas.getContext('2d');
     mctx.font = `${FONT_SIZE}px ${FONT_FAMILY}`;

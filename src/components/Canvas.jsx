@@ -3,7 +3,7 @@ import './Canvas.css';
 import { pxToCell, stampComponent } from '../lib/engine.js';
 
 const FONT_SIZE = 14;
-const FONT_FAMILY = "'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace";
+const FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif";
 const LINE_HEIGHT = 20;
 
 function measureCharWidth(fontSize, fontFamily) {

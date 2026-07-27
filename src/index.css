@@ -15,7 +15,7 @@
   --subtle: rgba(26,26,26,0.65);
   --accent-dim: #2f6fae;
   --accent-muted: rgba(91,155,213,0.14);
-  --font-mono: 'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --font-mono: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
 }
 
 [data-theme="dark"] {
