@@ -146,10 +146,12 @@ export default function App() {
     ctx.fillRect(0, 0, offscreen.width, offscreen.height);
     ctx.font = `${FONT_SIZE}px ${FONT_FAMILY}`;
     ctx.fillStyle = '#000000';
+    // ponytail: proportional font, so center each glyph in its fixed cell
+    ctx.textAlign = 'center';
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         const ch = state.grid[r][c];
-        if (ch !== ' ') ctx.fillText(ch, c * charW, r * LINE_HEIGHT + FONT_SIZE);
+        if (ch !== ' ') ctx.fillText(ch, (c + 0.5) * charW, r * LINE_HEIGHT + FONT_SIZE);
       }
     }
 
