@@ -5,3 +5,7 @@
 
 ## WKWebView shell (reviewed 2026-07-22)
 Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API needs"). Unlike Books, this was a deliberate choice, not an oversight. Revisit only if wiretext ever needs a real native API. If it's ever ported anyway: no real blockers (grid/undo logic and 23 presets are plain data, map cleanly to SwiftUI) — could also resolve the still-open blank-white-screen sim bug above as a side effect.
+
+## From App Store.pdf (imported 2026-07-28)
+- [ ] Create an app icon for Wiretext (ASC 6794988951) — no icon designed yet. Use the clrs.cc palette.
+- [ ] Ship a macOS version of Wiretext.
