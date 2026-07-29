@@ -26,7 +26,7 @@ targets:
         INFOPLIST_FILE: App/Info.plist
         GENERATE_INFOPLIST_FILE: NO
         TARGETED_DEVICE_FAMILY: "1,2"
-        # ponytail: no AppIcon asset catalog yet — generate one from icon.svg before App Store submission
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
 
 schemes:
   Wiretext-iOS:
