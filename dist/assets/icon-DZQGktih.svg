@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#111111" rx="32"/>
+  <!-- viewfinder corner brackets: wireframe canvas motif -->
+  <g stroke="#39CCCC" stroke-width="7" stroke-linecap="square" fill="none">
+    <path d="M52 44 H44 V52"/>
+    <path d="M148 44 H156 V52"/>
+    <path d="M52 156 H44 V148"/>
+    <path d="M148 156 H156 V148"/>
+  </g>
+  <!-- placed component block -->
+  <rect x="70" y="82" width="60" height="18" rx="3" fill="none" stroke="#39CCCC" stroke-width="4"/>
+  <!-- text cursor -->
+  <rect x="70" y="112" width="4" height="16" fill="#39CCCC"/>
+  <rect x="82" y="118" width="48" height="4" fill="#39CCCC" opacity="0.55"/>
+</svg>
