@@ -8,3 +8,6 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 
 ## From App Store.pdf (imported 2026-07-28)
 - [ ] Ship a macOS version of Wiretext.
+
+## From App Store.pdf (imported 2026-07-29)
+- [ ] Icon still shows as blank/placeholder grid glyph on ASC despite an earlier session claiming the icon was uploaded 2026-07-29 — re-verify with `asc builds icons list` before assuming it's fixed, then re-upload if needed.
