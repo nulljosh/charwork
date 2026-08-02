@@ -10,4 +10,4 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 - [ ] Ship a macOS version of Wiretext.
 
 ## From App Store.pdf (imported 2026-07-29)
-- [ ] Icon still shows as blank/placeholder grid glyph on ASC despite an earlier session claiming the icon was uploaded 2026-07-29 — re-verify with `asc builds icons list` before assuming it's fixed, then re-upload if needed.
+- [x] RESOLVED 2026-08-02 (false alarm, same pattern as Spinelist): `asc builds icons list` on the only build (uploaded 2026-07-29T04:26, VALID) shows both APP_STORE icon variants rendering the real teal-viewfinder icon (icon commit b45dab3, 2026-07-28 21:56, predates the build). Fetched and viewed both CDN thumbnails directly — no placeholder, matches local `icon_1024.png` (1024x1024, no alpha). Nothing to fix; likely a stale local dashboard view when the item was logged.
