@@ -19,8 +19,6 @@ Review submission `27425fb8-9404-42a0-88bf-ec85773ed696`, submitted 2026-08-03T1
    This should unblock availability on curvely, healstack, nyc, portfolio and anything else stuck on it.
 2. **App Privacy publish returns a bare 409** until you `asc web privacy apply --file <declaration.json> --confirm` first; publish alone never works on a fresh app.
 
-- [x] Blank white screen — RESOLVED 2026-08-03, no longer reproduces. Launched on iPhone 11 Pro Max + iPad Pro 13" sims: app renders correctly (tour modal, canvas, palette, inspector), components stamp and undo/redo work. Was likely fixed by the 07-29 `project.yml` resource-wiring pass; nothing left to diagnose.
-
 ## Blocked on Joshua
 - [ ] **Icon uses teal (#39CCCC viewfinder motif)**, which contradicts the standing "no teal, no purple" rule. Not changed here on purpose: the icon is baked into build `1ed73f24`, which is currently under review — swapping it means a new build and a resubmit. Decide after the review clears whether to redesign.
 - [ ] **Orange accent removal** (wiki lists this for wiretext + Talli + Curvely together). The orange is the canvas cursor box, visible in the App Store screenshots. Same reason as above — deferred until the current review resolves, since it needs a rebuild + new screenshots.
@@ -33,6 +31,3 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 
 ## From App Store.pdf (imported 2026-07-28)
 - [ ] Ship a macOS version of Wiretext.
-
-## From App Store.pdf (imported 2026-07-29)
-- [x] RESOLVED 2026-08-02 (false alarm, same pattern as Spinelist): `asc builds icons list` on the only build (uploaded 2026-07-29T04:26, VALID) shows both APP_STORE icon variants rendering the real teal-viewfinder icon (icon commit b45dab3, 2026-07-28 21:56, predates the build). Fetched and viewed both CDN thumbnails directly — no placeholder, matches local `icon_1024.png` (1024x1024, no alpha). Nothing to fix; likely a stale local dashboard view when the item was logged.
