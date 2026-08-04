@@ -41,3 +41,7 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 ## Ingested 2026-08-04
 - [ ] Pick a custom product name instead of reusing the source idea's name. Candidates proposed 2026-08-04: **Gridling**, **Plotline**, **Charwork**. Needs a decision from Joshua before any rename (repo, CF Pages project `wiretext`, `wiretext.heyitsmejosh.com`, ASC record all key off the current name).
 - [x] Font still wrong — root cause: shared `heyitsmejosh.com/tokens.css` defines `--font` as a mono stack, and every `font-family` in this app pointed at it. A previous pass had redefined the local `--font-mono` to sans, which did nothing since nothing used it. Now `--font` is overridden locally to the system sans stack in `src/index.css` `:root` (`--font-mono` aliases it — the canvas is already sans by design, glyphs centered in fixed cells per `Canvas.jsx`). Deployed + verified in the live CSS bundle.
+
+## Decision 2026-08-04
+
+- [ ] Rename wiretext -> **Charwork** (decided; not yet executed). Reason: current name was copied from the source idea. Charwork says what it is (character-grid canvas). Touches: repo name, Cloudflare Pages project, `wiretext.heyitsmejosh.com` DNS, App Store Connect record, in-app title/manifest. Do as one deliberate pass, not a drive-by. Rejected alternatives: Gridling, Plotline.
