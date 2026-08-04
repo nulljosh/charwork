@@ -34,7 +34,7 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 
 ## TestFlight signing defect (found 2026-08-03)
 
-- [ ] **iOS builds are likely TestFlight-ineligible (ITMS-90886).** This repo has **no `.entitlements` file and no `CODE_SIGN_ENTITLEMENTS`** anywhere, so the app signs without an `application-identifier` while the provisioning profile has one. Apple reports it as "not required to fix", which is why it went unnoticed — but the build cannot be distributed via TestFlight.
+- [x] **iOS builds were TestFlight-ineligible (ITMS-90886) — FIXED 2026-08-04.** Added `ios/Wiretext.entitlements` + `CODE_SIGN_ENTITLEMENTS` in `ios/project.yml`, mirroring Uprighty `df346b8`. Verified on a real Release archive: `application-identifier => QMM486NPYC.com.nulljosh.wiretext`. Needs a rebuild + resubmit to reach users — the in-review build still has the defect. The entitlement change also invalidates the provisioning profile; refetch with `asc signing fetch` before the next upload. Original diagnosis below for reference:
   Fix proven on Uprighty 2026-08-03 (commit `df346b8`): add `<Target>.entitlements` with `application-identifier` = `$(AppIdentifierPrefix)$(CFBundleIdentifier)`, wire via `CODE_SIGN_ENTITLEMENTS` in `project.yml`, hand-commit it (xcodegen silently drops keys).
   Verify: `codesign -d --entitlements :- <exported>.app` should show `application-identifier`, `beta-reports-active: true`, `get-task-allow: false`. An entitlement change invalidates the profile — refetch with `asc signing fetch`.
 
