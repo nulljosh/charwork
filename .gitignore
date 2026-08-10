@@ -1,7 +1,2 @@
 .vercel
-.wrangler
-node_modules/.cache
-
-# asc working artifacts: xcarchives, provisioning profiles, metadata review plans
-.asc/
-ios/.asc/
+node_modules/
