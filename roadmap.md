@@ -35,3 +35,7 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 ## Decision 2026-08-04
 
 - [ ] Rename wiretext -> **Charwork** (approved 2026-08-04, deliberately parked - "we can work on it later", not urgent). Reason: current name was copied from the source idea. Charwork says what it is (character-grid canvas). Touches: repo name, Cloudflare Pages project, `wiretext.heyitsmejosh.com` DNS, App Store Connect record, in-app title/manifest. Do as one deliberate pass, not a drive-by. Rejected alternatives: Gridling, Plotline.
+
+## App Store submission freeze — until 2026-08-18
+- [ ] **BLOCKED: no App Store submission on any app until 2026-08-18.** Account is under a Guideline 5.6 Developer Code of Conduct review suspension (Curvely, Transcriptly, Wiretext, NYC Survive). Apple warns that continued similar submissions may result in removal from the Apple Developer Program. Full detail: wiki `ship-plan.md` § "Guideline 5.6 suspension (2026-08-10)". TestFlight builds, pushes and web deploys are still fine.
+- [ ] Wiretext iOS 1.0 is SUSPENDED under 5.6. The app is 1 Swift file / 72 lines — a pure WKWebView shell. Do not resubmit as-is. Decide: rewrite native, or withdraw and delete the record (6794988951). Recommendation: withdraw.
