@@ -32,16 +32,6 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 ## From App Store.pdf (imported 2026-07-28)
 - [ ] Ship a macOS version of Wiretext.
 
-## TestFlight signing defect (found 2026-08-03)
-
-- [x] **iOS builds were TestFlight-ineligible (ITMS-90886) — FIXED 2026-08-04.** Added `ios/Wiretext.entitlements` + `CODE_SIGN_ENTITLEMENTS` in `ios/project.yml`, mirroring Uprighty `df346b8`. Verified on a real Release archive: `application-identifier => QMM486NPYC.com.nulljosh.wiretext`. Needs a rebuild + resubmit to reach users — the in-review build still has the defect. The entitlement change also invalidates the provisioning profile; refetch with `asc signing fetch` before the next upload. Original diagnosis below for reference:
-  Fix proven on Uprighty 2026-08-03 (commit `df346b8`): add `<Target>.entitlements` with `application-identifier` = `$(AppIdentifierPrefix)$(CFBundleIdentifier)`, wire via `CODE_SIGN_ENTITLEMENTS` in `project.yml`, hand-commit it (xcodegen silently drops keys).
-  Verify: `codesign -d --entitlements :- <exported>.app` should show `application-identifier`, `beta-reports-active: true`, `get-task-allow: false`. An entitlement change invalidates the profile — refetch with `asc signing fetch`.
-
-## Ingested 2026-08-04
-- [x] Product name decided 2026-08-04: **Charwork** (rejected: Gridling, Plotline). The rename itself is the separate parked item below.
-- [x] Font still wrong — root cause: shared `heyitsmejosh.com/tokens.css` defines `--font` as a mono stack, and every `font-family` in this app pointed at it. A previous pass had redefined the local `--font-mono` to sans, which did nothing since nothing used it. Now `--font` is overridden locally to the system sans stack in `src/index.css` `:root` (`--font-mono` aliases it — the canvas is already sans by design, glyphs centered in fixed cells per `Canvas.jsx`). Deployed + verified in the live CSS bundle.
-
 ## Decision 2026-08-04
 
 - [ ] Rename wiretext -> **Charwork** (approved 2026-08-04, deliberately parked - "we can work on it later", not urgent). Reason: current name was copied from the source idea. Charwork says what it is (character-grid canvas). Touches: repo name, Cloudflare Pages project, `wiretext.heyitsmejosh.com` DNS, App Store Connect record, in-app title/manifest. Do as one deliberate pass, not a drive-by. Rejected alternatives: Gridling, Plotline.
