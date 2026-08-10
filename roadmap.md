@@ -39,3 +39,10 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 ## App Store submission freeze — until 2026-08-18
 - [ ] **BLOCKED: no App Store submission on any app until 2026-08-18.** Account is under a Guideline 5.6 Developer Code of Conduct review suspension (Curvely, Transcriptly, Wiretext, NYC Survive). Apple warns that continued similar submissions may result in removal from the Apple Developer Program. Full detail: wiki `ship-plan.md` § "Guideline 5.6 suspension (2026-08-10)". TestFlight builds, pushes and web deploys are still fine.
 - [ ] Wiretext iOS 1.0 is SUSPENDED under 5.6. The app is 1 Swift file / 72 lines — a pure WKWebView shell. Do not resubmit as-is. Decide: rewrite native, or withdraw and delete the record (6794988951). Recommendation: withdraw.
+
+## Decision 2026-08-10: keep the record, build the app out
+Not withdrawing. The App Store record (6794988951) stays; it just goes dormant until the app is
+real. Payments/IAP alone will NOT clear Guideline 4.2 — 4.2 is about what the app *does*, and a
+paid WebView wrapper is still a wrapper.
+- [ ] Before any resubmit, the app needs genuine app-only functionality — something the website cannot do: offline use, share-sheet/extension, widget, local persistence, native input. Today it is 1 Swift file / 72 lines wrapping a web view.
+- [ ] Do not resubmit until that exists AND it is past 2026-08-18.
