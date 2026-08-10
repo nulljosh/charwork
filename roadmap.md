@@ -46,3 +46,8 @@ real. Payments/IAP alone will NOT clear Guideline 4.2 — 4.2 is about what the 
 paid WebView wrapper is still a wrapper.
 - [ ] Before any resubmit, the app needs genuine app-only functionality — something the website cannot do: offline use, share-sheet/extension, widget, local persistence, native input. Today it is 1 Swift file / 72 lines wrapping a web view.
 - [ ] Do not resubmit until that exists AND it is past 2026-08-18.
+
+## 2026-08-10 — App Review notes are EMPTY
+`asc review details-for-version` shows no App Review notes on Wiretext's version. Apple's 5.6
+letter explicitly requires "detailed notes of the improvements made" before resubmission.
+- [ ] Write real review notes once the app has genuine functionality. Do not resubmit with an empty notes field — that is part of what the 5.6 letter asks for.
