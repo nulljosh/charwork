@@ -49,7 +49,7 @@
 .inspector-value {
   font-size: 12px;
   color: var(--subtle);
-  font-family: var(--font);
+  font-family: var(--font-mono);
 }
 
 .inspector-value--green {
@@ -76,7 +76,7 @@
 }
 
 .inspector-preview-line {
-  font-family: var(--font);
+  font-family: var(--font-mono);
   font-size: 10px;
   color: var(--subtle);
   white-space: pre;

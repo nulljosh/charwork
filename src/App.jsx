@@ -129,7 +129,7 @@ export default function App() {
   const handleExportPng = useCallback(() => {
     const FONT_SIZE = 14;
     const LINE_HEIGHT = 20;
-    const FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif";
+    const FONT_FAMILY = "'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace";
     const measureCanvas = document.createElement('canvas');
     const mctx = measureCanvas.getContext('2d');
     mctx.font = `${FONT_SIZE}px ${FONT_FAMILY}`;
@@ -146,12 +146,10 @@ export default function App() {
     ctx.fillRect(0, 0, offscreen.width, offscreen.height);
     ctx.font = `${FONT_SIZE}px ${FONT_FAMILY}`;
     ctx.fillStyle = '#000000';
-    // ponytail: proportional font, so center each glyph in its fixed cell
-    ctx.textAlign = 'center';
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         const ch = state.grid[r][c];
-        if (ch !== ' ') ctx.fillText(ch, (c + 0.5) * charW, r * LINE_HEIGHT + FONT_SIZE);
+        if (ch !== ' ') ctx.fillText(ch, c * charW, r * LINE_HEIGHT + FONT_SIZE);
       }
     }
 

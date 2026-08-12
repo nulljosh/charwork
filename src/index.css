@@ -15,10 +15,7 @@
   --subtle: rgba(26,26,26,0.65);
   --accent-dim: #2f6fae;
   --accent-muted: rgba(91,155,213,0.14);
-  /* ponytail: shared tokens.css sets --font to a mono stack; this app is sans throughout,
-     including the canvas (glyphs are centered in fixed cells, see Canvas.jsx) */
-  --font: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, system-ui, sans-serif;
-  --font-mono: var(--font);
+  --font-mono: 'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 }
 
 [data-theme="dark"] {

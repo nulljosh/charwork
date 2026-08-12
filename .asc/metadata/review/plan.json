@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-03T17:17:50Z",
+  "command": "metadata plan",
+  "reviewDir": ".asc/metadata/review",
+  "planPath": ".asc/metadata/review/plan.json",
+  "approvalPath": ".asc/metadata/review/approved.json",
+  "planHash": "4125fa2a46e9a671ec55dba672838e8e7133d56aa9eba2c28cb14d8187753f18",
+  "options": {
+    "appId": "6794988951",
+    "appInfoId": "228650c4-cd2b-4785-bddf-1432625be1c5",
+    "version": "1.0",
+    "platform": "IOS",
+    "dir": "./metadata",
+    "includes": [
+      "localizations"
+    ],
+    "allowDeletes": false
+  },
+  "plan": {
+    "appId": "6794988951",
+    "appInfoId": "228650c4-cd2b-4785-bddf-1432625be1c5",
+    "version": "1.0",
+    "versionId": "723f5b69-fc6b-4c22-a6a2-87f67d05065c",
+    "dir": "./metadata",
+    "dryRun": true,
+    "includes": [
+      "localizations"
+    ],
+    "adds": [
+      {
+        "key": "app-info:en-US:privacyPolicyUrl",
+        "scope": "app-info",
+        "locale": "en-US",
+        "field": "privacyPolicyUrl",
+        "reason": "field exists locally but not remotely",
+        "to": "https://wiretext.heyitsmejosh.com/privacy"
+      },
+      {
+        "key": "app-info:en-US:subtitle",
+        "scope": "app-info",
+        "locale": "en-US",
+        "field": "subtitle",
+        "reason": "field exists locally but not remotely",
+        "to": "Unicode wireframe sketchpad"
+      }
+    ],
+    "updates": [],
+    "deletes": [],
+    "apiCalls": [
+      {
+        "operation": "update_localization",
+        "scope": "app-info",
+        "count": 1
+      }
+    ]
+  }
+}

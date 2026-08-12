@@ -14,13 +14,13 @@ npm run build                # production build
 - `src/lib/presets.js` — 23 component templates (Button through Skeleton)
 - `src/lib/engine.js` — grid state, stampComponent, undo/redo, pxToCell
 - `src/App.jsx` — root reducer (SELECT_PRESET, PLACE_COMPONENT, UNDO, REDO, CLEAR)
-- `src/components/Canvas.jsx` — HTML canvas, system-font char grid (SF Pro/Helvetica), hover preview, click-to-place
+- `src/components/Canvas.jsx` — HTML canvas, monospace char grid, hover preview, click-to-place
 - `src/components/Toolbar.jsx` — component palette grouped by category
 - `src/components/Inspector.jsx` — cursor coords, preset preview, history counts
 
 ## Design
 
-Dark-mode only (`data-theme="dark"` set in `index.html`), using the exact tokens from `nulljosh.github.io/tokens.css`: `#1A1A1A` bg, `#5B9BD5` accent, `#FFF8F0` text. System font stack (SF Pro on macOS, Helvetica on other platforms) for performance. Matches portfolio aesthetic exactly (was previously a zinc-palette approximation).
+Dark-mode only (`data-theme="dark"` set in `index.html`), using the exact tokens from `nulljosh.github.io/tokens.css`: `#1A1A1A` bg, `#5B9BD5` accent, `#FFF8F0` text. Fraunces + DM Sans. Matches portfolio aesthetic exactly (was previously a zinc-palette approximation).
 
 ## iOS
 

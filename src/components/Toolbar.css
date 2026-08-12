@@ -106,7 +106,7 @@
 }
 
 .toolbar-item-preview {
-  font-family: var(--font);
+  font-family: var(--font-mono);
   font-size: 10px;
   color: inherit;
   overflow: hidden;

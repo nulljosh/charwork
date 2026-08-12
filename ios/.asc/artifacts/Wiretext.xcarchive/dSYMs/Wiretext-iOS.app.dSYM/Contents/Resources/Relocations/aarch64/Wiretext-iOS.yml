@@ -1,0 +1,54 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/joshua/Library/Developer/Xcode/DerivedData/Wiretext-ebfjimzriammfidqtywtfvmfwnxn/Build/Intermediates.noindex/ArchiveIntermediates/Wiretext-iOS/InstallationBuildProductsLocation/Applications/Wiretext-iOS.app/Wiretext-iOS'
+relocations:
+  - { offset: 0x51EF2, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS0A3AppV4bodyQrvg7SwiftUI4ViewPAEE15ignoresSafeArea_5edgesQrAE0iJ7RegionsV_AE4EdgeO3SetVtFQOyAA03WebG0V_Qo_ycfU_', symObjAddr: 0x0, symBinAddr: 0x100004000, symSize: 0x48 }
+  - { offset: 0x522AF, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS0A3AppVAC7SwiftUI0C0AAWl', symObjAddr: 0x65C, symBinAddr: 0x100004658, symSize: 0x40 }
+  - { offset: 0x522C3, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19BundleSchemeHandlerCMa', symObjAddr: 0x69C, symBinAddr: 0x100004698, symSize: 0x20 }
+  - { offset: 0x522D7, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS0A3AppVMa', symObjAddr: 0x6BC, symBinAddr: 0x1000046B8, symSize: 0x10 }
+  - { offset: 0x522EB, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS0A3AppV7SwiftUI0C0AA4BodyAdEP_AD5ScenePWT', symObjAddr: 0x6CC, symBinAddr: 0x1000046C8, symSize: 0x10 }
+  - { offset: 0x522FF, size: 0x8, addend: 0x0, symName: ___swift_instantiateConcreteTypeFromMangledNameV2, symObjAddr: 0x6DC, symBinAddr: 0x1000046D8, symSize: 0x50 }
+  - { offset: 0x52313, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI15ModifiedContentVy12Wiretext_iOS7WebViewVAA30_SafeAreaRegionsIgnoringLayoutVGACyxq_GAA0H0A2aKRzAA0H8ModifierR_rlWl', symObjAddr: 0x72C, symBinAddr: 0x100004728, symSize: 0x78 }
+  - { offset: 0x52327, size: 0x8, addend: 0x0, symName: ___swift_instantiateConcreteTypeFromMangledNameAbstractV2, symObjAddr: 0x7A4, symBinAddr: 0x1000047A0, symSize: 0x54 }
+  - { offset: 0x5233B, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewVAC7SwiftUI0D0AAWl', symObjAddr: 0x7F8, symBinAddr: 0x1000047F4, symSize: 0x40 }
+  - { offset: 0x5234F, size: 0x8, addend: 0x0, symName: '_$s7SwiftUI11WindowGroupVyAA15ModifiedContentVy12Wiretext_iOS7WebViewVAA30_SafeAreaRegionsIgnoringLayoutVGGACyxGAA5SceneAAWl', symObjAddr: 0x838, symBinAddr: 0x100004834, symSize: 0x50 }
+  - { offset: 0x52363, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4findys10_HashTableV6BucketV6bucket_Sb5foundtxSHRzlFSS_Tgq5', symObjAddr: 0x888, symBinAddr: 0x100004884, symSize: 0x64 }
+  - { offset: 0x52386, size: 0x8, addend: 0x0, symName: '_$ss22__RawDictionaryStorageC4find_9hashValues10_HashTableV6BucketV6bucket_Sb5foundtx_SitSHRzlFSS_Tgq5', symObjAddr: 0x8EC, symBinAddr: 0x1000048E8, symSize: 0xAC }
+  - { offset: 0x523E9, size: 0x8, addend: 0x0, symName: '_$sSD17dictionaryLiteralSDyxq_Gx_q_td_tcfCSS_ypTt0gq5Tf4g_n', symObjAddr: 0xBE4, symBinAddr: 0x100004BE0, symSize: 0x10C }
+  - { offset: 0x5246A, size: 0x8, addend: 0x0, symName: '_$s10Foundation3URLVSgWOh', symObjAddr: 0x1354, symBinAddr: 0x100005350, symSize: 0x48 }
+  - { offset: 0x5247E, size: 0x8, addend: 0x0, symName: '_$s10Foundation8URLErrorVAcA21_BridgedStoredNSErrorAAWl', symObjAddr: 0x139C, symBinAddr: 0x100005398, symSize: 0x44 }
+  - { offset: 0x52492, size: 0x8, addend: 0x0, symName: '_$s10Foundation4DataV15_RepresentationOWOe', symObjAddr: 0x13E0, symBinAddr: 0x1000053DC, symSize: 0x40 }
+  - { offset: 0x524A6, size: 0x8, addend: 0x0, symName: '_$sSS_yptWOc', symObjAddr: 0x1420, symBinAddr: 0x10000541C, symSize: 0x50 }
+  - { offset: 0x524BA, size: 0x8, addend: 0x0, symName: '_$sypWOb', symObjAddr: 0x1470, symBinAddr: 0x10000546C, symSize: 0x10 }
+  - { offset: 0x524CE, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewVMa', symObjAddr: 0x1480, symBinAddr: 0x10000547C, symSize: 0x10 }
+  - { offset: 0x524E2, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAaD0D0PWb', symObjAddr: 0x1494, symBinAddr: 0x100005490, symSize: 0x4 }
+  - { offset: 0x524F6, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI0D0AA4BodyAdEP_AGWT', symObjAddr: 0x1498, symBinAddr: 0x100005494, symSize: 0xC }
+  - { offset: 0x5250A, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewVAC7SwiftUI19UIViewRepresentableAAWl', symObjAddr: 0x14A4, symBinAddr: 0x1000054A0, symSize: 0x40 }
+  - { offset: 0x52661, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS0A3AppV4bodyQrvg7SwiftUI4ViewPAEE15ignoresSafeArea_5edgesQrAE0iJ7RegionsV_AE4EdgeO3SetVtFQOyAA03WebG0V_Qo_ycfU_', symObjAddr: 0x0, symBinAddr: 0x100004000, symSize: 0x48 }
+  - { offset: 0x52727, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS0A3AppV7SwiftUI0C0AadEP4body4BodyQzvgTW', symObjAddr: 0x48, symBinAddr: 0x100004048, symSize: 0x124 }
+  - { offset: 0x52787, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS0A3AppV7SwiftUI0C0AadEPxycfCTW', symObjAddr: 0x16C, symBinAddr: 0x10000416C, symSize: 0x4 }
+  - { offset: 0x52857, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19BundleSchemeHandlerC7webView_5startySo05WKWebG0C_So15WKURLSchemeTask_ptFTo', symObjAddr: 0x170, symBinAddr: 0x100004170, symSize: 0x60 }
+  - { offset: 0x52881, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19BundleSchemeHandlerC7webView_4stopySo05WKWebG0C_So15WKURLSchemeTask_ptFTo', symObjAddr: 0x1D0, symBinAddr: 0x1000041D0, symSize: 0x4 }
+  - { offset: 0x528AE, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19BundleSchemeHandlerCACycfcTo', symObjAddr: 0x1D4, symBinAddr: 0x1000041D4, symSize: 0x3C }
+  - { offset: 0x528E3, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19BundleSchemeHandlerCfD', symObjAddr: 0x210, symBinAddr: 0x100004210, symSize: 0x34 }
+  - { offset: 0x52AC1, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV10makeUIView7contextSo05WKWebD0C7SwiftUI0F20RepresentableContextVyACG_tF', symObjAddr: 0x244, symBinAddr: 0x100004244, symSize: 0x2F0 }
+  - { offset: 0x52BCD, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP04makeG07context0G4TypeQzAD0gH7ContextVyxG_tFTW', symObjAddr: 0x534, symBinAddr: 0x100004534, symSize: 0x8 }
+  - { offset: 0x52BEC, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP09dismantleG0_11coordinatory0G4TypeQz_11CoordinatorQztFZTW', symObjAddr: 0x540, symBinAddr: 0x10000453C, symSize: 0x4 }
+  - { offset: 0x52C00, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP15makeCoordinator0J0QzyFTW', symObjAddr: 0x544, symBinAddr: 0x100004540, symSize: 0x4 }
+  - { offset: 0x52C14, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP011_identifiedD4Tree2inAD011_IdentifieddJ0O0G4TypeQz_tFTW', symObjAddr: 0x548, symBinAddr: 0x100004544, symSize: 0x4 }
+  - { offset: 0x52C28, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP12sizeThatFits_02uiD07contextSo6CGSizeVSgAD08ProposedD4SizeV_0G4TypeQzAD0gH7ContextVyxGtFTW', symObjAddr: 0x54C, symBinAddr: 0x100004548, symSize: 0x4 }
+  - { offset: 0x52C3C, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP21_overrideSizeThatFits_2in02uiD0ySo6CGSizeVz_AD09_ProposedJ0V0G4TypeQztFTW', symObjAddr: 0x550, symBinAddr: 0x10000454C, symSize: 0x4 }
+  - { offset: 0x52C50, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP21_overrideLayoutTraits_3foryAD01_jK0Vz_0G4TypeQztFTW', symObjAddr: 0x554, symBinAddr: 0x100004550, symSize: 0x4 }
+  - { offset: 0x52C64, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP014_modifyBridgedD6InputsyyAD01_dK0VzFZTW', symObjAddr: 0x558, symBinAddr: 0x100004554, symSize: 0x4 }
+  - { offset: 0x52C78, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI19UIViewRepresentableAadEP14_layoutOptionsyAD09_Platformdh6LayoutJ0V0G4TypeQzFZTW', symObjAddr: 0x55C, symBinAddr: 0x100004558, symSize: 0x4 }
+  - { offset: 0x52C8C, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI0D0AadEP05_makeD04view6inputsAD01_D7OutputsVAD11_GraphValueVyxG_AD01_D6InputsVtFZTW', symObjAddr: 0x560, symBinAddr: 0x10000455C, symSize: 0x50 }
+  - { offset: 0x52CA0, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI0D0AadEP05_makeD4List4view6inputsAD01_dH7OutputsVAD11_GraphValueVyxG_AD01_dH6InputsVtFZTW', symObjAddr: 0x5B0, symBinAddr: 0x1000045AC, symSize: 0x50 }
+  - { offset: 0x52CB4, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI0D0AadEP14_viewListCount6inputsSiSgAD01_dhI6InputsV_tFZTW', symObjAddr: 0x600, symBinAddr: 0x1000045FC, symSize: 0x4 }
+  - { offset: 0x52CC8, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS7WebViewV7SwiftUI0D0AadEP4body4BodyQzvgTW', symObjAddr: 0x604, symBinAddr: 0x100004600, symSize: 0x24 }
+  - { offset: 0x52CEE, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x628, symBinAddr: 0x100004624, symSize: 0x34 }
+  - { offset: 0x52D1E, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19BundleSchemeHandlerC8mimeType33_750A0087314699938E03D91CF58160D1LL3forS2S_tFTf4nd_n', symObjAddr: 0x998, symBinAddr: 0x100004994, symSize: 0x24C }
+  - { offset: 0x52F83, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19BundleSchemeHandlerC7webView_5startySo05WKWebG0C_So15WKURLSchemeTask_ptFTf4dnd_n', symObjAddr: 0xCF0, symBinAddr: 0x100004CEC, symSize: 0x664 }
+  - { offset: 0x532AA, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19ResourceBundleClass33_BB1DFB7CEF094B44C1CE3CB28AECE873LLCfD', symObjAddr: 0x0, symBinAddr: 0x1000054E0, symSize: 0x10 }
+  - { offset: 0x532EC, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19ResourceBundleClass33_BB1DFB7CEF094B44C1CE3CB28AECE873LLCMa', symObjAddr: 0x10, symBinAddr: 0x1000054F0, symSize: 0x20 }
+  - { offset: 0x5330C, size: 0x8, addend: 0x0, symName: '_$s12Wiretext_iOS19ResourceBundleClass33_BB1DFB7CEF094B44C1CE3CB28AECE873LLCfD', symObjAddr: 0x0, symBinAddr: 0x1000054E0, symSize: 0x10 }
+...

@@ -3,7 +3,7 @@ import './Canvas.css';
 import { pxToCell, stampComponent } from '../lib/engine.js';
 
 const FONT_SIZE = 14;
-const FONT_FAMILY = "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif";
+const FONT_FAMILY = "'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace";
 const LINE_HEIGHT = 20;
 
 function measureCharWidth(fontSize, fontFamily) {
@@ -44,8 +44,6 @@ export default function Canvas({
     const charH = LINE_HEIGHT;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    // ponytail: proportional font, so center each glyph in its fixed cell
-    ctx.textAlign = 'center';
 
     ctx.fillStyle = darkMode ? '#0d0c0b' : '#faf7f4';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -68,7 +66,7 @@ export default function Canvas({
         for (let dc = 0; dc < selectedPreset.width; dc++) {
           const c = col + dc;
           if (c < 0 || c >= cols) continue;
-          ctx.fillText(previewGrid[r][c], (c + 0.5) * charW, r * charH + FONT_SIZE);
+          ctx.fillText(previewGrid[r][c], c * charW, r * charH + FONT_SIZE);
         }
       }
     }
@@ -79,7 +77,7 @@ export default function Canvas({
       for (let c = 0; c < cols; c++) {
         const ch = grid[r][c];
         if (ch !== ' ') {
-          ctx.fillText(ch, (c + 0.5) * charW, r * charH + FONT_SIZE);
+          ctx.fillText(ch, c * charW, r * charH + FONT_SIZE);
         }
       }
     }
