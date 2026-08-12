@@ -51,3 +51,5 @@ paid WebView wrapper is still a wrapper.
 `asc review details-for-version` shows no App Review notes on Wiretext's version. Apple's 5.6
 letter explicitly requires "detailed notes of the improvements made" before resubmission.
 - [ ] Write real review notes once the app has genuine functionality. Do not resubmit with an empty notes field — that is part of what the 5.6 letter asks for.
+
+> Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished, unverified changes for the items above. Review `git show HEAD` before building on it — it was committed mid-flight, not reviewed, and is unpushed.
