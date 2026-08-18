@@ -56,9 +56,6 @@ Review submission `27425fb8-9404-42a0-88bf-ec85773ed696`, submitted 2026-08-03T1
 - [ ] **Icon uses teal (#39CCCC viewfinder motif)**, which contradicts the standing "no teal, no purple" rule. Not changed here on purpose: the icon is baked into build `1ed73f24`, which is currently under review — swapping it means a new build and a resubmit. Decide after the review clears whether to redesign.
 - [ ] **Orange accent removal** (wiki lists this for wiretext + Talli + Curvely together). The orange is the canvas cursor box, visible in the App Store screenshots. Same reason as above — deferred until the current review resolves, since it needs a rebuild + new screenshots.
 
-## Polish (not blocking)
-- [ ] iPad: the canvas stops at 50 rows and leaves a white band across the bottom third of the screen on a 12.9" display — visible in the uploaded iPad screenshot. Canvas should either fill the viewport or the empty area should take the canvas background.
-
 ## WKWebView shell (reviewed 2026-07-22)
 Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API needs"). Unlike Books, this was a deliberate choice, not an oversight. Revisit only if wiretext ever needs a real native API. If it's ever ported anyway: no real blockers (grid/undo logic and 23 presets are plain data, map cleanly to SwiftUI) — could also resolve the still-open blank-white-screen sim bug above as a side effect.
 
@@ -71,14 +68,12 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 
 ## App Store submission freeze — until 2026-08-18
 - [ ] **BLOCKED: no App Store submission on any app until 2026-08-18.** Account is under a Guideline 5.6 Developer Code of Conduct review suspension (Curvely, Transcriptly, Wiretext, NYC Survive). Apple warns that continued similar submissions may result in removal from the Apple Developer Program. Full detail: wiki `ship-plan.md` § "Guideline 5.6 suspension (2026-08-10)". TestFlight builds, pushes and web deploys are still fine.
-- [ ] Wiretext iOS 1.0 is SUSPENDED under 5.6. The app is 1 Swift file / 72 lines — a pure WKWebView shell. Do not resubmit as-is. Decide: rewrite native, or withdraw and delete the record (6794988951). Recommendation: withdraw.
 
 ## Decision 2026-08-10: keep the record, build the app out
 Not withdrawing. The App Store record (6794988951) stays; it just goes dormant until the app is
 real. Payments/IAP alone will NOT clear Guideline 4.2 — 4.2 is about what the app *does*, and a
 paid WebView wrapper is still a wrapper.
-- [ ] Before any resubmit, the app needs genuine app-only functionality — something the website cannot do: offline use, share-sheet/extension, widget, local persistence, native input. Today it is 1 Swift file / 72 lines wrapping a web view.
-- [ ] Do not resubmit until that exists AND it is past 2026-08-18.
+- [ ] Do not resubmit until it is past 2026-08-18. The functionality condition is now met; local MARKETING_VERSION is 1.1.0, so ASC needs a 1.1.0 version record created before the build can be uploaded (the existing record is 1.0, REJECTED).
 
 ## 2026-08-10 — App Review notes are EMPTY
 `asc review details-for-version` shows no App Review notes on Wiretext's version. Apple's 5.6
