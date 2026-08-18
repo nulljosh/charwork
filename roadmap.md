@@ -104,6 +104,3 @@ Before resubmitting:
 - [ ] Then write the improvement notes:
       `asc review details-update --id 79348adb-3187-44bf-a543-495be8f6da2c --notes "..."`
 - [ ] Only then submit. Review detail id for this version: `79348adb-3187-44bf-a543-495be8f6da2c`.
-
-## Ingested 2026-08-18
-- [ ] Needs a landing page.
