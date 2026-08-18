@@ -104,3 +104,20 @@ Before resubmitting:
 - [ ] Then write the improvement notes:
       `asc review details-update --id 79348adb-3187-44bf-a543-495be8f6da2c --notes "..."`
 - [ ] Only then submit. Review detail id for this version: `79348adb-3187-44bf-a543-495be8f6da2c`.
+
+## 5.6 defect verification 2026-08-18
+
+**Verdict: cited defect disproven as still-present — it was fixed before the resubmission.**
+
+- iOS 1.1.0 is `WAITING_FOR_REVIEW` (submitted ~04:06 today), build `202608180348` uploaded
+  03:51, VALID.
+- Apple's actual 5.6 complaint was minimum functionality — "Wiretext is 1 Swift file / 72 lines
+  … still a WKWebView shell" (`ship-plan.md`). Current `ios/App/` is 542 lines across 8 Swift
+  files (`Engine.swift` 127, `ContentView.swift` 135, `Presets.swift` 115 …) plus a 155-line
+  `Checks/main.swift`. **No WebKit anywhere in the sources.**
+- "No landing page" (2026-08-18 Notes review) no longer holds: commit `0a703b2` added a
+  marketing landing page at `/` and moved the app to `/app`. `wiretext.heyitsmejosh.com` → 200
+  (title "Wiretext — wireframes made of characters"), `/app` → 200.
+- Registered ASC marketing + support URLs are both `https://wiretext.heyitsmejosh.com`, live.
+
+No code change was needed. Do not submit anything further until this review clears.
