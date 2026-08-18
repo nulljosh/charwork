@@ -73,12 +73,11 @@ Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API 
 Not withdrawing. The App Store record (6794988951) stays; it just goes dormant until the app is
 real. Payments/IAP alone will NOT clear Guideline 4.2 — 4.2 is about what the app *does*, and a
 paid WebView wrapper is still a wrapper.
-- [ ] Do not resubmit until it is past 2026-08-18. The functionality condition is now met; local MARKETING_VERSION is 1.1.0, so ASC needs a 1.1.0 version record created before the build can be uploaded (the existing record is 1.0, REJECTED).
+- [ ] Do not resubmit until it is past 2026-08-18. Functionality condition met. **Tried 2026-08-17 and it is blocked until the unfreeze:** `asc versions create --app 6794988951 --version 1.1.0` fails with "You cannot create a new version of the App in the current state" — the only version, iOS 1.0, is REJECTED and the app is still inside the 5.6 suspension window. Retry the create on Aug 18; if it still refuses, the fallback is editing the existing rejected version's version string rather than creating a new one.
 
 ## 2026-08-10 — App Review notes are EMPTY
 `asc review details-for-version` shows no App Review notes on Wiretext's version. Apple's 5.6
 letter explicitly requires "detailed notes of the improvements made" before resubmission.
-- [ ] Write real review notes once the app has genuine functionality. Do not resubmit with an empty notes field — that is part of what the 5.6 letter asks for.
 
 > Resume note (2026-08-11): a `wip: partial work from /work notes ingest` commit holds unfinished, unverified changes for the items above. Review `git show HEAD` before building on it — it was committed mid-flight, not reviewed, and is unpushed.
 
