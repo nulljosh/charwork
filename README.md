@@ -35,3 +35,7 @@ MIT 2026 Joshua Trommel
 ## Live
 
 [wiretext.heyitsmejosh.com](https://wiretext.heyitsmejosh.com)
+
+## Whitepaper
+
+[Technical whitepaper](WHITEPAPER.md)
