@@ -10,3 +10,4 @@ node_modules/
 **/.asc/release/
 **/.asc/runs/
 **/.asc/reports/
+dist/
