@@ -128,3 +128,7 @@ Before resubmitting:
 - Registered ASC marketing + support URLs are both `https://wiretext.heyitsmejosh.com`, live.
 
 No code change was needed. Do not submit anything further until this review clears.
+
+## Ingested 2026-08-24
+
+- [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation — copy its style and vibe, subject is Wiretext's own char-grid canvas.
