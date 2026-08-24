@@ -132,3 +132,12 @@ No code change was needed. Do not submit anything further until this review clea
 ## Ingested 2026-08-24
 
 - [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation — copy its style and vibe, subject is Wiretext's own char-grid canvas.
+- [ ] **`scripts/build-site.sh` is broken — `npx vite build` dies with `ERR_MODULE_NOT_FOUND`.**
+      Found 2026-08-24. Separately, the entire tracked working tree (app source, `package.json`,
+      `CLAUDE.md`, `README.md`, `.gitignore`, `ios/`, 35 files) was **missing from disk** while
+      still present in git — restored with `git checkout` the same day, so nothing was lost, but
+      it is worth knowing how they vanished. The build still fails after the restore, so it needs
+      an `npm install` and a real check. **Careful:** the script opens with `rm -rf dist`, and
+      `dist/` is *tracked* in this repo, so a failed build deletes committed files — it took two
+      `git checkout -- dist` rounds today. Make the build write to a temp dir and only swap
+      `dist/` on success, or stop tracking `dist/`.
