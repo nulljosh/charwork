@@ -80,7 +80,7 @@ each is one `asc review submit` away. Do not submit until the in-flight verdicts
 Not withdrawing. The App Store record (6794988951) stays; it just goes dormant until the app is
 real. Payments/IAP alone will NOT clear Guideline 4.2 — 4.2 is about what the app *does*, and a
 paid WebView wrapper is still a wrapper.
-- [ ] Do not resubmit until it is past 2026-08-18. Functionality condition met. **Tried 2026-08-17 and it is blocked until the unfreeze:** `asc versions create --app 6794988951 --version 1.1.0` fails with "You cannot create a new version of the App in the current state" — the only version, iOS 1.0, is REJECTED and the app is still inside the 5.6 suspension window. Retry the create on Aug 18; if it still refuses, the fallback is editing the existing rejected version's version string rather than creating a new one.
+- **CLOSED 2026-08-25** (done — the freeze lifted, it was resubmitted, and iOS **1.1.0 is READY_FOR_SALE**, verified via `asc versions list --app 6794988951`). Was: Do not resubmit until it is past 2026-08-18. Functionality condition met. **Tried 2026-08-17 and it is blocked until the unfreeze:** `asc versions create --app 6794988951 --version 1.1.0` fails with "You cannot create a new version of the App in the current state" — the only version, iOS 1.0, is REJECTED and the app is still inside the 5.6 suspension window. Retry the create on Aug 18; if it still refuses, the fallback is editing the existing rejected version's version string rather than creating a new one.
 
 ## 2026-08-10 — App Review notes are EMPTY
 `asc review details-for-version` shows no App Review notes on Wiretext's version. Apple's 5.6
