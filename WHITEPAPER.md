@@ -1,6 +1,6 @@
 # Wiretext Technical Whitepaper
 
-**v1.1.0** | July 2026
+**v1.1.0** | August 2026
 
 Wiretext is a Unicode wireframe design tool: click a component from the
 palette, stamp it onto a monospace character grid, and export the mockup as
@@ -38,12 +38,12 @@ a hover preview of the selected component before placing.
 
 ## iOS
 
-A thin WKWebView shell in `ios/` (xcodegen, no Capacitor — the app has no
-native API needs). The build is served over a custom `app://` scheme rather
-than `file://`, because ES module scripts are blocked cross-origin under
-`file://`. `npm run build:ios` produces the embedded web build with relative
-asset paths. Remaining before App Store submission: generate an AppIcon asset
-catalog from `icon.svg`.
+Native SwiftUI (xcodegen), rewritten in August 2026 from the original
+WKWebView shell. The shell had to serve its build over a custom `app://`
+scheme because ES module scripts are blocked cross-origin under `file://`;
+the native port removed that workaround along with the embedded web build.
+Remaining before App Store submission: generate an AppIcon asset catalog from
+`icon.svg`.
 
 ## Privacy
 

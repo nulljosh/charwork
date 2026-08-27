@@ -4,6 +4,7 @@ import Toolbar from './components/Toolbar.jsx';
 import Canvas from './components/Canvas.jsx';
 import Inspector from './components/Inspector.jsx';
 import { createState, undo, redo, pushHistory, stampComponent, gridToText } from './lib/engine.js';
+import { useWebMCP } from './lib/webmcp.js';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -110,6 +111,8 @@ export default function App() {
   const handleCursorMove = useCallback((col, row) => {
     dispatch({ type: 'SET_CURSOR', col, row });
   }, []);
+
+  useWebMCP({ state, dispatch });
 
   const handleUndo = useCallback(() => dispatch({ type: 'UNDO' }), []);
   const handleRedo = useCallback(() => dispatch({ type: 'REDO' }), []);
