@@ -1,4 +1,4 @@
-# wiretext web
+# Charwork web
 
 v1.1.0 — Unicode wireframe tool. Vite + React 19. Dark Editorial design.
 
@@ -36,8 +36,8 @@ assets are bundled any more; `npm run build:ios` is no longer part of the iOS bu
 
 ```bash
 cd ios && xcodegen generate
-xcodebuild build -scheme Wiretext-iOS -destination 'generic/platform=iOS Simulator' \
-  -derivedDataPath /tmp/dd-wiretext -skipPackagePluginValidation
+xcodebuild build -scheme Charwork-iOS -destination 'generic/platform=iOS Simulator' \
+  -derivedDataPath /tmp/dd-charwork -skipPackagePluginValidation
 
 # engine self-check, no framework needed
 swiftc -o /tmp/wtcheck ios/App/Engine.swift ios/App/Presets.swift ios/Checks/main.swift && /tmp/wtcheck

@@ -1,4 +1,4 @@
-// Dark Editorial tokens, matching the web app (see wiretext/CLAUDE.md).
+// Dark Editorial tokens, matching the web app (see the repo CLAUDE.md).
 
 import SwiftUI
 

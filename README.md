@@ -1,6 +1,6 @@
 <img src="icon.svg" width="80" style="border-radius:18px">
 
-# wiretext
+# Charwork
 ![version](https://img.shields.io/badge/version-v1.1.0-blue)
 
 Unicode wireframe design tool. Click components from the palette, place them on a monospace character canvas, export as plain text.

@@ -1,11 +1,11 @@
-# Wiretext API
+# Charwork API
 
-Wiretext runs entirely in the browser — no server, no HTTP API. The agent-facing
+Charwork runs entirely in the browser — no server, no HTTP API. The agent-facing
 interface is WebMCP.
 
 ## WebMCP
 
-With the app open, wiretext registers tools on `document.modelContext`.
+With the app open, Charwork registers tools on `document.modelContext`.
 Source: `src/lib/webmcp.js`.
 
 ### Read-only

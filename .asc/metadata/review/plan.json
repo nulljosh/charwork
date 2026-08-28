@@ -1,16 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-03T17:17:50Z",
+  "generatedAt": "2026-08-28T07:36:40Z",
   "command": "metadata plan",
   "reviewDir": ".asc/metadata/review",
   "planPath": ".asc/metadata/review/plan.json",
   "approvalPath": ".asc/metadata/review/approved.json",
-  "planHash": "4125fa2a46e9a671ec55dba672838e8e7133d56aa9eba2c28cb14d8187753f18",
+  "planHash": "82d86b698bfa5d3584672c1f349fb4423b9c745a0ed2f1b8eb2b1fbfa4675251",
   "options": {
     "appId": "6794988951",
     "appInfoId": "228650c4-cd2b-4785-bddf-1432625be1c5",
-    "version": "1.0",
-    "platform": "IOS",
+    "version": "1.1.0",
     "dir": "./metadata",
     "includes": [
       "localizations"
@@ -20,37 +19,45 @@
   "plan": {
     "appId": "6794988951",
     "appInfoId": "228650c4-cd2b-4785-bddf-1432625be1c5",
-    "version": "1.0",
+    "version": "1.1.0",
     "versionId": "723f5b69-fc6b-4c22-a6a2-87f67d05065c",
     "dir": "./metadata",
     "dryRun": true,
     "includes": [
       "localizations"
     ],
-    "adds": [
+    "adds": [],
+    "updates": [
       {
-        "key": "app-info:en-US:privacyPolicyUrl",
+        "key": "app-info:en-US:name",
         "scope": "app-info",
         "locale": "en-US",
-        "field": "privacyPolicyUrl",
-        "reason": "field exists locally but not remotely",
-        "to": "https://wiretext.heyitsmejosh.com/privacy"
+        "field": "name",
+        "reason": "field value differs",
+        "from": "Wiretext",
+        "to": "Charwork"
       },
       {
-        "key": "app-info:en-US:subtitle",
-        "scope": "app-info",
+        "key": "version:1.1.0:en-US:description",
+        "scope": "version",
         "locale": "en-US",
-        "field": "subtitle",
-        "reason": "field exists locally but not remotely",
-        "to": "Unicode wireframe sketchpad"
+        "version": "1.1.0",
+        "field": "description",
+        "reason": "field value differs",
+        "from": "Wiretext is a wireframe tool that draws interfaces out of plain Unicode characters.\n\nPick a component from the palette, place it on the character grid, and build up a layout the way you would sketch one on graph paper. Everything you make is just text, so you can paste it into a README, a code comment, a design doc, a ticket, or a chat message and it renders anywhere a monospace font does.\n\nFEATURES\n\n- 23 component presets: buttons, inputs, selects, checkboxes, radios, toggles, tables, modals, browser frames, cards, navbars, tabs, progress bars, icons, images, dividers, alerts, breadcrumbs, avatars, lists, steppers, ratings, and skeletons\n- A 100 x 50 character canvas with click-to-place positioning\n- Hover preview, so you see where a component lands before committing to it\n- Undo and redo up to 50 steps\n- Export to a .txt file or copy the whole canvas to the clipboard\n- Works entirely offline; nothing you draw leaves your device\n\nWiretext does not collect any data, require an account, or show ads.",
+        "to": "Charwork is a wireframe tool that draws interfaces out of plain Unicode characters.\n\nPick a component from the palette, place it on the character grid, and build up a layout the way you would sketch one on graph paper. Everything you make is just text, so you can paste it into a README, a code comment, a design doc, a ticket, or a chat message and it renders anywhere a monospace font does.\n\nFEATURES\n\n- 23 component presets: buttons, inputs, selects, checkboxes, radios, toggles, tables, modals, browser frames, cards, navbars, tabs, progress bars, icons, images, dividers, alerts, breadcrumbs, avatars, lists, steppers, ratings, and skeletons\n- A 100 x 50 character canvas with click-to-place positioning\n- Hover preview, so you see where a component lands before committing to it\n- Undo and redo up to 50 steps\n- Export to a .txt file or copy the whole canvas to the clipboard\n- Works entirely offline; nothing you draw leaves your device\n\nCharwork does not collect any data, require an account, or show ads."
       }
     ],
-    "updates": [],
     "deletes": [],
     "apiCalls": [
       {
         "operation": "update_localization",
         "scope": "app-info",
+        "count": 1
+      },
+      {
+        "operation": "update_localization",
+        "scope": "version",
         "count": 1
       }
     ]

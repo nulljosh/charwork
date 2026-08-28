@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct WiretextApp: App {
+struct CharworkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()

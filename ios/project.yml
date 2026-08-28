@@ -1,4 +1,4 @@
-name: Wiretext
+name: Charwork
 options:
   bundleIdPrefix: com.nulljosh
   deploymentTarget:
@@ -12,7 +12,7 @@ settings:
     CURRENT_PROJECT_VERSION: "202608180348"
 
 targets:
-  Wiretext-iOS:
+  Charwork-iOS:
     type: application
     platform: iOS
     sources:
@@ -29,15 +29,15 @@ targets:
         # application-identifier while the embedded profile does — Apple rejects
         # that combination for TestFlight with ITMS-90886. Hand-committed rather
         # than generated via xcodegen `entitlements.properties` (drops keys).
-        # Wiretext.entitlements existed since 08-03 but was never referenced here,
+        # Charwork.entitlements (was Wiretext.entitlements) existed since 08-03 but was never referenced here,
         # so xcodegen dropped it and every build shipped without it.
-        CODE_SIGN_ENTITLEMENTS: Wiretext.entitlements
+        CODE_SIGN_ENTITLEMENTS: Charwork.entitlements
 
 schemes:
-  Wiretext-iOS:
+  Charwork-iOS:
     build:
       targets:
-        Wiretext-iOS: all
+        Charwork-iOS: all
     run:
       config: Debug
     archive:

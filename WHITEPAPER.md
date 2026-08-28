@@ -1,8 +1,8 @@
-# Wiretext Technical Whitepaper
+# Charwork Technical Whitepaper
 
 **v1.1.0** | August 2026
 
-Wiretext is a Unicode wireframe design tool: click a component from the
+Charwork is a Unicode wireframe design tool: click a component from the
 palette, stamp it onto a monospace character grid, and export the mockup as
 plain text. Wireframes that paste into a commit message, a code comment, or a
 chat. Live at
