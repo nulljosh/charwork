@@ -6,24 +6,24 @@
   padding: 0;
 }
 
+/* Everything below maps this app's older variable names onto the shared
+   Jaybulb tokens. Nothing here may re-declare a colour the design system
+   already owns — that shadowing is what made the app stop matching the
+   other projects. Add a mapping, never a new palette. */
 :root {
-  --bg: #FFFFFF;
-  --surface: #f2f4f6;
-  --surface2: #e9ecef;
-  --border2: rgba(26,26,26,0.2);
-  --muted: rgba(26,26,26,0.45);
-  --subtle: rgba(26,26,26,0.65);
-  --accent-dim: #2f6fae;
-  --accent-muted: rgba(91,155,213,0.14);
-  --font-mono: 'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
-}
+  /* ponytail: --font/--font-mono are aliases, not new fonts. The app used
+     var(--font) in 7 places and no stylesheet ever defined it, so those
+     elements silently rendered in the browser default (serif). */
+  --font: var(--font-body);
+  --font-mono: var(--font-code);
 
-[data-theme="dark"] {
-  --surface: #1a1a1a;
-  --surface2: #242424;
-  --border2: rgba(232,232,240,0.18);
-  --muted: rgba(232,232,240,0.45);
-  --subtle: rgba(232,232,240,0.65);
+  --surface: var(--color-bg2);
+  --surface2: var(--color-hairline);
+  --border2: var(--color-hairline);
+  --muted: var(--color-secondary);
+  --subtle: var(--color-soft);
+  --accent-dim: var(--bulb-deep);
+  --accent-muted: rgba(255, 202, 48, 0.16);
 }
 
 html, body, #root {
@@ -35,7 +35,7 @@ html, body, #root {
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font);
+  font-family: var(--font-body);
   font-size: 13px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -50,8 +50,8 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   background: var(--border2);
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(37,42,73,0.3);
+  background: var(--color-soft);
 }

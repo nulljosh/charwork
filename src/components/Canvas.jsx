@@ -3,8 +3,16 @@ import './Canvas.css';
 import { pxToCell, stampComponent } from '../lib/engine.js';
 
 const FONT_SIZE = 14;
-const FONT_FAMILY = "'Berkeley Mono', 'JetBrains Mono', 'Fira Code', ui-monospace, monospace";
+// ponytail: the canvas is a character grid, so monospace is correct here and
+// only here — the surrounding UI is sans via --font-body. Read it off the
+// shared tokens rather than naming fonts this repo does not ship.
 const LINE_HEIGHT = 20;
+
+function token(name, fallback) {
+  const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  return v || fallback;
+}
+const FONT_FAMILY = () => token('--font-code', 'ui-monospace, monospace');
 
 function measureCharWidth(fontSize, fontFamily) {
   const canvas = document.createElement('canvas');
@@ -31,7 +39,7 @@ export default function Canvas({
 
   function getCharW() {
     if (!charWRef.current) {
-      charWRef.current = measureCharWidth(FONT_SIZE, FONT_FAMILY);
+      charWRef.current = measureCharWidth(FONT_SIZE, FONT_FAMILY());
     }
     return charWRef.current;
   }
@@ -45,10 +53,10 @@ export default function Canvas({
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = darkMode ? '#0d0c0b' : '#faf7f4';
+    ctx.fillStyle = token('--color-bg2', '#faf8f3');
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.fillStyle = darkMode ? 'rgba(232,232,240,0.1)' : 'rgba(37,42,73,0.1)';
+    ctx.fillStyle = token('--color-hairline', 'rgba(0,0,0,0.12)');
     for (let r = 0; r <= rows; r++) {
       for (let c = 0; c <= cols; c++) {
         ctx.fillRect(Math.round(c * charW), r * charH, 1, 1);
@@ -58,8 +66,8 @@ export default function Canvas({
     if (hoverCell && selectedPreset) {
       const { col, row } = hoverCell;
       const previewGrid = stampComponent(grid, selectedPreset.template, col, row);
-      ctx.font = `${FONT_SIZE}px ${FONT_FAMILY}`;
-      ctx.fillStyle = 'rgba(255,133,27,0.5)';
+      ctx.font = `${FONT_SIZE}px ${FONT_FAMILY()}`;
+      ctx.fillStyle = token('--color-secondary', 'rgba(0,0,0,0.5)');
       for (let dy = 0; dy < selectedPreset.height; dy++) {
         const r = row + dy;
         if (r < 0 || r >= rows) continue;
@@ -71,8 +79,8 @@ export default function Canvas({
       }
     }
 
-    ctx.font = `${FONT_SIZE}px ${FONT_FAMILY}`;
-    ctx.fillStyle = darkMode ? '#f2ede8' : '#1a1612';
+    ctx.font = `${FONT_SIZE}px ${FONT_FAMILY()}`;
+    ctx.fillStyle = token('--color-text', '#000000');
     for (let r = 0; r < rows; r++) {
       for (let c = 0; c < cols; c++) {
         const ch = grid[r][c];
@@ -84,8 +92,8 @@ export default function Canvas({
 
     const cx = cursor.col * charW;
     const cy = cursor.row * charH;
-    ctx.strokeStyle = '#FF851B';
-    ctx.lineWidth = 1;
+    ctx.strokeStyle = token('--accent', '#ffca30');
+    ctx.lineWidth = 2;
     ctx.strokeRect(cx + 0.5, cy + 0.5, charW - 1, charH - 1);
   }, [grid, cols, rows, cursor, selectedPreset, darkMode]);
 

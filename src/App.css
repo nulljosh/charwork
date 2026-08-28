@@ -42,7 +42,7 @@
   align-items: center;
   gap: 6px;
   padding: 4px 10px;
-  border-radius: 5px;
+  border-radius: var(--radius);
   border: 1px solid var(--border);
   background: transparent;
   color: var(--muted);
@@ -62,14 +62,16 @@
 .btn-primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  /* black on the bulb block, never white — #ffca30 fails contrast under it,
+     and the bulb stays yellow in both themes so this cannot be --color-text */
+  color: #000;
   font-weight: 500;
 }
 
 .btn-primary:hover {
   background: var(--accent-dim);
   border-color: var(--accent-dim);
-  color: #fff;
+  color: #000;
 }
 
 .btn-danger {
@@ -87,7 +89,7 @@
   width: 32px;
   height: 32px;
   padding: 0;
-  border-radius: 50%;
+  border-radius: var(--radius);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -198,9 +200,9 @@
     right: 0;
     background: var(--surface);
     border-top: 1px solid var(--border);
-    border-radius: 12px 12px 0 0;
+    border-radius: var(--radius);
     z-index: 105;
-    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-md);
     padding: 6px 0;
   }
 

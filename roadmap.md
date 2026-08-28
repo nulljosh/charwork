@@ -141,3 +141,72 @@ No code change was needed. Do not submit anything further until this review clea
       `dist/` is *tracked* in this repo, so a failed build deletes committed files — it took two
       `git checkout -- dist` rounds today. Make the build write to a temp dir and only swap
       `dist/` on success, or stop tracking `dist/`.
+
+## From Notes (imported 2026-08-27)
+- [x] Rename the project — "Wiretext" is a stolen name. Verified shortlist below; **picking the name is Joshua's call, nothing was renamed.**
+- [x] Redesign the UI closer to Claude Design's look — web app re-pointed at the Jaybulb tokens (see "Design pass" below). iOS target and icon deliberately untouched.
+
+### Rename shortlist — probed 2026-08-27, authoritative
+
+Probed with `asc-name-creator/probe.sh` against throwaway record 6783501927, which is
+exact-match truth (the iTunes Search API and every public checker are wrong the same way).
+`nulljosh/<name>` on GitHub is free for all six leaders. **Trademark screening was NOT done.**
+
+**AVAILABLE (13):** Charwork · Charcast · Glyphra · Glyphdraft · Boxdraw · Blockframe ·
+Cellwright · Cellwire · Runeframe · Monodraft · Wireglyph · Textframe · Sketchcell
+
+**TAKEN (9):** Charta · Asciify · Gridle · Gridwright · Stencil · Lattice · Typewire ·
+Framewright · Draftbox
+
+**Charwork is confirmed still available** — the wiki records it as already approved on
+2026-08-04 and then parked ("will rename the app, repo, domain, and bundle ID"). Unless
+that decision changed, Charwork is the default and this shortlist is just the alternates.
+
+When a name is picked, the rename is more than the ASC listing: `asc apps rename --app
+6794988951`, then `INFOPLIST_KEY_CFBundleDisplayName` in `ios/project.yml` + `xcodegen
+generate` (the app is **native SwiftUI since 2026-08-17**, so the rename touches the Swift
+target as well as the web app), README/CLAUDE.md/landing `<title>`, the row in
+`~/Documents/Code/CLAUDE.md`, the GitHub repo, and the
+`wiretext.heyitsmejosh.com` subdomain.
+
+- [ ] **Joshua: pick a name from the shortlist above** (or confirm Charwork), then run the propagation sweep.
+- [ ] Housekeeping: probe record 6783501927 is currently named **"Headwire"**, not "Lexly Mac" — a leftover from an earlier probe run whose restore did not complete. Harmless (probe.sh saves and restores whatever it finds, and did so correctly today), but the record is the one memory says needs Apple Support to delete.
+
+### Design pass 2026-08-27 — web app now actually consumes the design system
+
+Root cause of "doesn't match the other projects": `src/index.css` imported the shared
+tokens and then **re-declared the colours they own**, so the design system was loaded and
+immediately shadowed. Fixed by making that block a pure alias layer onto the Jaybulb tokens.
+
+Real bugs found and fixed on the way:
+- `font-family: var(--font)` was used in 7 places and **no stylesheet anywhere defined
+  `--font`** — every one of those elements was silently falling back to the browser default,
+  which is serif on most browsers. Now aliased to `--font-body` (SF/Helvetica).
+- `--font-mono` named 'Berkeley Mono', 'JetBrains Mono', 'Fira Code' — none of which this
+  repo ships. Now `--font-code` from the tokens. Monospace is kept for the character grid
+  only; that grid is the product, and the chrome around it is sans.
+- The dark theme only redefined `--surface`/`--surface2`; `--bg`, `--muted` and `--subtle`
+  stayed at their light values, so parts of dark mode were ink-on-ink. Aliasing fixes it,
+  because the tokens are theme-aware and these no longer are.
+- `.btn-primary` set `color: #fff` on `background: var(--accent)`. With the accent now the
+  bulb (#ffca30) that is unreadable, so primary buttons are black-on-bulb — the design
+  system's actual signature. It cannot be `--color-text`; the bulb stays yellow in dark mode.
+- Squared every corner (`--radius`, the system is square everywhere) and dropped the three
+  `0 -4px 20px` mobile sheet shadows to `--shadow-md` (a no-op; the system uses flat blocks).
+- `src/components/Canvas.jsx` drew in hardcoded hexes including the orange cursor `#FF851B`
+  and an orange hover preview. These now read `--accent`, `--color-text`, `--color-bg2`,
+  `--color-hairline` and `--color-secondary` off the tokens at draw time, so the canvas
+  follows the theme instead of fighting it. **This closes the web half of the "orange accent
+  removal" item under "Blocked on Joshua"** — the iOS build and the teal icon are untouched
+  and still need Joshua's decision, since those are what appear in the App Store screenshots.
+
+Verified: `vite build` clean (built to a temp dir — `scripts/build-site.sh` opens with
+`rm -rf dist` and `dist/` is tracked), 26/26 existing tests pass, and the built CSS contains
+no serif, no Berkeley Mono, and no teal/purple/indigo/orange.
+
+### Someday / Explore
+- [ ] The bulb (#ffca30) is a low-contrast colour for a 1px cursor outline on a near-white
+      canvas. It is drawn at `lineWidth: 2` now to compensate, but if it reads as faint in
+      real use the cursor may want a solid bulb block behind the cell instead of an outline.
+- [ ] `src/App.css` still carries `#ef4444` for the danger button. Left alone deliberately —
+      it is semantic (destructive), not brand, and the token set has no danger colour.
