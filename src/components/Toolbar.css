@@ -91,7 +91,6 @@
   text-align: left;
   cursor: pointer;
   transition: background 0.1s, color 0.1s;
-  border-left: 2px solid transparent;
 }
 
 .toolbar-item:hover {
@@ -102,17 +101,16 @@
 .toolbar-item--active {
   background: var(--accent-muted);
   color: var(--text);
-  border-left-color: var(--accent);
 }
 
 .toolbar-item-preview {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: inherit;
   overflow: hidden;
   text-overflow: clip;
   white-space: nowrap;
-  opacity: 0.6;
+  opacity: 0.85;
 }
 
 .toolbar-item-label {

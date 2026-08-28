@@ -23,7 +23,30 @@
   --muted: var(--color-secondary);
   --subtle: var(--color-soft);
   --accent-dim: var(--bulb-deep);
-  --accent-muted: rgba(255, 202, 48, 0.16);
+  --accent-muted: rgba(217, 119, 87, 0.14);
+}
+
+/* ponytail: Charwork-only override of the shared Jaybulb tokens. This app tracks
+   its own iOS app (warm paper + terracotta), not the estate's yellow-on-white --
+   the deliberate exception to the "never shadow the design system" rule above.
+   Canonical --color-* names only: tokens.css defines --bg/--text/--accent by
+   reference, so every alias follows for free. */
+:root {
+  --color-bg:        #FAF9F5;
+  --color-bg2:       #F0EEE6;   /* canvas ground; read at draw time by Canvas.jsx */
+  --color-text:      #191919;
+  --color-secondary: rgba(25, 25, 25, 0.55);
+  --color-soft:      rgba(25, 25, 25, 0.70);
+  --color-hairline:  #E3DFD4;
+  --color-code-bg:   #F0EEE6;
+  --bulb:            #D97757;   /* drives --accent + --accent-dot */
+  --bulb-deep:       #B45F42;   /* hover / active */
+
+  --radius:    10px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --rule: 1px solid var(--color-hairline);
 }
 
 html, body, #root {
@@ -54,4 +77,18 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-soft);
+}
+
+/* Dark: the same warm palette with ink and paper swapped. Without this, the
+   theme toggle falls back to Jaybulb's dark block and the yellow returns. */
+:root[data-theme="dark"] {
+  --color-bg:        #1F1E1D;
+  --color-bg2:       #262624;
+  --color-text:      #F5F4EF;
+  --color-secondary: rgba(245, 244, 239, 0.55);
+  --color-soft:      rgba(245, 244, 239, 0.72);
+  --color-hairline:  rgba(245, 244, 239, 0.14);
+  --color-code-bg:   #262624;
+  --bulb:            #E08A6B;
+  --bulb-deep:       #C96A4A;
 }

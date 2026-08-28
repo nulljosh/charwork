@@ -197,8 +197,8 @@ export default function App() {
           <button className="btn" onClick={handleRedo} title="Redo (Ctrl+Y)">Redo</button>
           <button className="btn" onClick={handleClear}>Clear</button>
           <button className="btn" onClick={handleCopy}>Copy</button>
-          <button className="btn btn-primary" onClick={handleExport}>Export .txt</button>
-          <button className="btn btn-primary" onClick={handleExportPng}>Export PNG</button>
+          <button className="btn" onClick={handleExport}>Export .txt</button>
+          <button className="btn" onClick={handleExportPng}>Export PNG</button>
           <button className="btn btn-icon-round" onClick={() => setDarkMode(d => !d)} title="Toggle dark mode">
             {darkMode ? <SunIcon /> : <MoonIcon />}
           </button>

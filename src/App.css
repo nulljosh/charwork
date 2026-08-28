@@ -59,19 +59,21 @@
   background: var(--surface2);
 }
 
+/* The deep terracotta, not --accent: white on #D97757 is only 3.2:1, while
+   white on #B45F42 clears 4.5:1. Same fill in both themes so the contrast
+   holds either way. Only the welcome modal uses this -- the toolbar is all
+   ghost buttons, so the loudest thing on screen isn't "Export PNG". */
 .btn-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  /* black on the bulb block, never white — #ffca30 fails contrast under it,
-     and the bulb stays yellow in both themes so this cannot be --color-text */
-  color: #000;
+  background: #B45F42;
+  border-color: #B45F42;
+  color: #fff;
   font-weight: 500;
 }
 
 .btn-primary:hover {
-  background: var(--accent-dim);
-  border-color: var(--accent-dim);
-  color: #000;
+  background: #9C4E34;
+  border-color: #9C4E34;
+  color: #fff;
 }
 
 .btn-danger {

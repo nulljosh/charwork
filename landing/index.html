@@ -5,40 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Charwork — wireframes made of characters</title>
 <meta name="description" content="Sketch interface wireframes on a character grid from 23 ready-made components, then export the result as plain text you can paste anywhere.">
-<meta name="theme-color" content="#5B9BD5">
+<meta name="theme-color" content="#FAF9F5">
 <meta property="og:title" content="Charwork — wireframes made of characters">
 <meta property="og:description" content="Sketch interface wireframes on a character grid, then export them as plain text you can paste anywhere.">
 <meta property="og:type" content="website">
 <link rel="icon" href="icon.svg">
 <style>
 :root {
-  --accent: #5B9BD5;
-  --accent-soft: #eaf2fa;
-  --bg: #ffffff;
-  --bg2: #f7f7f8;
-  --text: #1c1d22;
-  --text2: #5c5f6a;
-  --border: #e6e7ea;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --accent: #D97757;
+  --accent-deep: #B45F42;   /* white clears 4.5:1 on this, not on --accent */
+  --accent-soft: #F0EEE6;
+  --bg: #FAF9F5;
+  --bg2: #F0EEE6;
+  --text: #191919;
+  --text2: rgba(25,25,25,0.60);
+  --border: #E3DFD4;
+  /* sans only, and no webfont: 'DM Sans' was named here but never loaded, so
+     every visitor already fell through to the system face below it. */
+  --font-body: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #111111; --bg2: #1a1a1a; --text: #e8e8f0;
-    --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
-    --accent-soft: #1b2530;
+    --bg: #1F1E1D; --bg2: #262624; --text: #F5F4EF;
+    --text2: rgba(245,244,239,0.60); --border: rgba(245,244,239,0.14);
+    --accent: #E08A6B; --accent-soft: #262624;
   }
 }
 :root[data-theme="dark"] {
-  --bg: #111111; --bg2: #1a1a1a; --text: #e8e8f0;
-  --text2: rgba(232,232,240,0.60); --border: rgba(232,232,240,0.10);
-  --accent-soft: #1b2530;
+  --bg: #1F1E1D; --bg2: #262624; --text: #F5F4EF;
+  --text2: rgba(245,244,239,0.60); --border: rgba(245,244,239,0.14);
+  --accent: #E08A6B; --accent-soft: #262624;
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 .container { max-width: 62rem; margin: 0 auto; padding: 0 1.5rem; }
 .hero {
   position: relative; isolation: isolate; overflow: hidden;
-  background: var(--accent-soft); padding: 5.5rem 0 4.5rem; text-align: center;
+  background: var(--bg); padding: 5.5rem 0 4.5rem; text-align: center;
 }
 .hero .container { position: relative; z-index: 2; }
 
@@ -46,7 +49,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--
 .hero-wall {
   position: absolute; inset: -8%; z-index: 0;
   display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 10px;
-  opacity: 0.55;
+  opacity: 0.22;
   pointer-events: none; user-select: none;
 }
 .wall-col { display: flex; min-width: 0; flex-direction: column; gap: 10px; }
@@ -68,20 +71,17 @@ body { margin: 0; background: var(--bg); color: var(--text); font-family: var(--
 /* scrim: keeps the headline readable over the wall, in either theme */
 .hero::after {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background:
-    radial-gradient(ellipse 55% 60% at 50% 45%, var(--bg) 20%, transparent 80%),
-    linear-gradient(var(--bg), transparent 30%, transparent 62%, var(--bg) 96%),
-    color-mix(in srgb, var(--bg) 50%, transparent);
+  background: radial-gradient(ellipse 62% 66% at 50% 45%, var(--bg) 35%, transparent 85%);
 }
 .hero-icon { width: 88px; height: 88px; border-radius: 20px; }
 h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-spacing: -0.02em; }
 .hero p { font-size: 1.15rem; color: var(--text2); max-width: 34rem; margin: 0 auto; }
 .buttons { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
 .btn { display: inline-block; padding: 0.7rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.98rem; border: 1px solid transparent; }
-.btn-primary { background: var(--accent); color: #fff; }
+.btn-primary { background: var(--accent-deep); color: #fff; }
 .btn-outline { border-color: var(--border); color: var(--text); }
 .sample { max-width: 34rem; margin: 2.5rem auto 0; text-align: left; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; overflow-x: auto; }
-.sample pre { margin: 0; font-family: ui-monospace, 'SF Mono', Monaco, monospace; font-size: 0.82rem; line-height: 1.45; color: var(--text2); }
+.sample pre { margin: 0; font-family: ui-monospace, 'SF Mono', Monaco, monospace; font-size: 0.82rem; line-height: 1; color: var(--text); }
 .features { padding: 4rem 0; }
 h2 { font-size: 1.75rem; text-align: center; margin: 0 0 2.5rem; letter-spacing: -0.01em; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }

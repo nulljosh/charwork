@@ -33,8 +33,9 @@ a hover preview of the selected component before placing.
 - **UI**: `Toolbar.jsx` (palette grouped by category), `Inspector.jsx`
   (cursor coords, preset preview, history counts).
 - **Design**: dark-mode only, exact portfolio tokens from
-  `nulljosh.github.io/tokens.css` (#1A1A1A bg, #5B9BD5 accent, Fraunces +
-  DM Sans), consumed via the shared tokens.css `@import`.
+  warm paper (#FAF9F5 bg, #D97757 accent, system sans). The shared
+  tokens.css is still imported, then overridden in `src/index.css` -- Charwork
+  matches its own iOS app rather than the portfolio.
 
 ## iOS
 

@@ -1,6 +1,6 @@
 # Charwork web
 
-v1.1.0 — Unicode wireframe tool. Vite + React 19. Dark Editorial design.
+v1.1.0 — Unicode wireframe tool. Vite + React 19. Warm paper design.
 
 ## Run
 
@@ -20,7 +20,20 @@ npm run build                # production build
 
 ## Design
 
-Dark-mode only (`data-theme="dark"` set in `index.html`), using the exact tokens from `nulljosh.github.io/tokens.css`: `#1A1A1A` bg, `#5B9BD5` accent, `#FFF8F0` text. Fraunces + DM Sans. Matches portfolio aesthetic exactly (was previously a zinc-palette approximation).
+Warm paper: `#FAF9F5` ground, `#F0EEE6` canvas, `#191919` ink, terracotta `#D97757`
+accent, 10px corners. System sans throughout, monospace only inside the character
+grid. Light and dark, toggled in the header (persists as `wiretext-theme` in
+localStorage -- the key predates the rename and changing it would silently reset
+everyone's preference).
+
+Charwork **deliberately does not track the portfolio.** It still imports the shared
+Jaybulb `tokens.css`, but `src/index.css` overrides the canonical `--color-*` names
+so this app matches its own iOS app instead of the estate's yellow-on-white. That
+override is the one sanctioned exception to the "never shadow the design system"
+rule in that file -- add to it, don't add a second palette elsewhere.
+
+`src/components/Canvas.jsx` reads its fill colours out of those custom properties at
+draw time, so the `<canvas>` repaints from the tokens with no JS change.
 
 ## iOS
 

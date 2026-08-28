@@ -6,10 +6,15 @@
   touch-action: manipulation;
 }
 
+/* place-content centres the fixed-width grid instead of pinning it left, which
+   left about a third of the workspace as dead gutter on a wide window. Still
+   scrolls when the grid is bigger than the viewport. */
 .canvas-scroll {
   width: 100%;
   height: 100%;
   overflow: auto;
+  display: grid;
+  place-content: center;
   touch-action: pan-x pan-y;
 }
 
