@@ -144,8 +144,6 @@ No code change was needed. Do not submit anything further until this review clea
 
 ## From Notes (imported 2026-08-27)
 - [ ] **ASC rename is blocked and needs a version submission.** `asc metadata apply` failed with `The field 'name' can not be modified in the current state` (app-info) and `Attribute 'description' cannot be edited at this time` (version). iOS 1.1.0 is READY_FOR_SALE and there is no editable version, so Apple will not take a name change until a new version is created and submitted for review. That is deliberately not done while the account-level Guideline 4.3(a) wave is open. When the appeal clears: create the next version, then `asc metadata plan/approve/apply --app 6794988951 --version <new>` — the canonical files already say Charwork, so it will apply cleanly. ASC record 6794988951 still reads "Wiretext" until then.
-- [x] Repo + local directory renamed to `charwork` 2026-08-28; `landing/index.html` now links `github.com/nulljosh/charwork`. Subdomain intentionally still `wiretext.heyitsmejosh.com` (see next item).
-- [x] `charwork.heyitsmejosh.com` live 2026-08-28 (added as a second custom domain on the `wiretext` Pages project; `wiretext.heyitsmejosh.com` still serves the same site and must stay up, since the App Store marketingUrl/supportUrl still point at it). Portfolio entry now links the new domain. Move the ASC URLs over in the same version submission that takes the name change.
 
 ### Rename shortlist — probed 2026-08-27, authoritative
 
