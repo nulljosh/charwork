@@ -18,7 +18,7 @@ struct ContentView: View {
             PaletteView(selection: $selection, erasing: $erasing)
         }
         .background(Theme.background)
-        .preferredColorScheme(.dark)
+        .preferredColorScheme(.light)
         .onAppear(perform: restore)
     }
 
@@ -35,7 +35,7 @@ struct ContentView: View {
     private var toolbar: some View {
         HStack(spacing: 16) {
             Text("Charwork")
-                .font(.headline)
+                .font(.title3.weight(.semibold))
                 .foregroundStyle(Theme.ink)
 
             Spacer()

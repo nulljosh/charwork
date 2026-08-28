@@ -42,11 +42,12 @@ struct PaletteView: View {
         } label: {
             Text(preset.label)
                 .font(.subheadline)
-                .foregroundStyle(isSelected ? Theme.background : Theme.ink)
+                .foregroundStyle(isSelected ? Color.white : Theme.ink)
                 .padding(.horizontal, 12)
                 .padding(.vertical, 8)
-                .background(isSelected ? Theme.accent : Theme.canvas)
-                .overlay(Rectangle().strokeBorder(Theme.rule, lineWidth: isSelected ? 0 : 1))
+                .background(isSelected ? Theme.accent : Theme.canvas,
+                            in: Capsule())
+                .overlay(Capsule().strokeBorder(Theme.rule, lineWidth: isSelected ? 0 : 1))
         }
         .buttonStyle(.plain)
         .accessibilityLabel("\(preset.label), \(preset.width) by \(preset.height) characters")

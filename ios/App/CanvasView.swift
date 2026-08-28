@@ -30,8 +30,8 @@ struct CanvasView: View {
             draw(in: &context)
         }
         .frame(width: canvasSize.width, height: canvasSize.height, alignment: .topLeading)
-        .background(Theme.canvas)
-        .overlay(Rectangle().strokeBorder(Theme.rule, lineWidth: 1))
+        .background(Theme.canvas, in: RoundedRectangle(cornerRadius: Theme.radius))
+        .overlay(RoundedRectangle(cornerRadius: Theme.radius).strokeBorder(Theme.rule, lineWidth: 1))
         .gesture(tapGesture)
     }
 
