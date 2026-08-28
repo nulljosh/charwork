@@ -209,3 +209,20 @@ no serif, no Berkeley Mono, and no teal/purple/indigo/orange.
       real use the cursor may want a solid bulb block behind the cell instead of an outline.
 - [ ] `src/App.css` still carries `#ef4444` for the danger button. Left alone deliberately —
       it is semantic (destructive), not brand, and the token set has no danger colour.
+
+## Web design (2026-08-28)
+
+Charwork's web now uses the warm paper palette from its iOS app, overriding the
+shared Jaybulb tokens in `src/index.css`. It deliberately no longer matches the
+portfolio. Deployed and live on both domains.
+
+- [ ] The canvas grid dots are very faint against the paper ground -- readable,
+      but harder to judge alignment than on the old cream. Darken a step if it
+      annoys in real use.
+- [ ] Cursor Col/Row lives only in the far-right Inspector, so placing a
+      component means looking across the whole window. A readout near the cursor
+      would be less eye travel.
+- [ ] The Inspector panel is four rows of data in a full-height column. Either
+      give it more to do or let the canvas have the space.
+- [ ] The welcome modal's scrim is `rgba(0,0,0,0.6)` -- cold and heavy against
+      the warm palette; a lighter warm scrim would suit.
