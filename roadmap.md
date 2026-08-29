@@ -132,15 +132,15 @@ No code change was needed. Do not submit anything further until this review clea
 ## Ingested 2026-08-24
 
 - [ ] **Hero animation pass** (Notes 2026-08-24). Josh: "Curvely and wiretext can get this treatment too, however you decide." Reference: bookrank's hero animation — copy its style and vibe, subject is Wiretext's own char-grid canvas.
-- [ ] **`scripts/build-site.sh` is broken — `npx vite build` dies with `ERR_MODULE_NOT_FOUND`.**
-      Found 2026-08-24. Separately, the entire tracked working tree (app source, `package.json`,
-      `CLAUDE.md`, `README.md`, `.gitignore`, `ios/`, 35 files) was **missing from disk** while
-      still present in git — restored with `git checkout` the same day, so nothing was lost, but
-      it is worth knowing how they vanished. The build still fails after the restore, so it needs
-      an `npm install` and a real check. **Careful:** the script opens with `rm -rf dist`, and
-      `dist/` is *tracked* in this repo, so a failed build deletes committed files — it took two
-      `git checkout -- dist` rounds today. Make the build write to a temp dir and only swap
-      `dist/` on success, or stop tracking `dist/`.
+- [x] **`scripts/build-site.sh` is broken — `npx vite build` dies with `ERR_MODULE_NOT_FOUND`.**
+      Fixed 2026-08-28. Root cause was just a missing `node_modules` (the working tree that
+      vanished on 08-24 took it with it); nothing was wrong with the vite config. The script now
+      runs `npm install` when `node_modules/vite` is absent, so the same symptom cannot recur.
+      Also fixed the destructive-failure hazard: the build goes to a `mktemp -d` staging dir and
+      only swaps into `dist/` on success, so a failed build leaves the previous good `dist/`
+      untouched (verified by forcing a rollup resolve error). The roadmap's "`dist/` is tracked"
+      warning was **stale** — `dist/` is in `.gitignore` and `git ls-files dist` returns 0 files,
+      so a failed build was never going to delete committed content.
 
 ## From Notes (imported 2026-08-27)
 - [ ] **ASC rename is blocked and needs a version submission.** `asc metadata apply` failed with `The field 'name' can not be modified in the current state` (app-info) and `Attribute 'description' cannot be edited at this time` (version). iOS 1.1.0 is READY_FOR_SALE and there is no editable version, so Apple will not take a name change until a new version is created and submitted for review. That is deliberately not done while the account-level Guideline 4.3(a) wave is open. When the appeal clears: create the next version, then `asc metadata plan/approve/apply --app 6794988951 --version <new>` — the canonical files already say Charwork, so it will apply cleanly. ASC record 6794988951 still reads "Wiretext" until then.
