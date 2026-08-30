@@ -5,18 +5,33 @@
 // column boundaries the tap math uses.
 
 import SwiftUI
+import CoreText
 
 struct CanvasView: View {
     let grid: Grid
     let fontSize: CGFloat
     let onTap: (Int, Int) -> Void
 
-    private var uiFont: UIFont {
-        UIFont.monospacedSystemFont(ofSize: fontSize, weight: .regular)
+    // CoreText rather than UIFont so this file compiles unchanged on macOS. NSFont has no
+    // `lineHeight` and no shared metric API with UIFont, so the alternative was a #if with
+    // two different measurement paths — CTFont is one path that is exact on both.
+    private var font: CTFont {
+        CTFontCreateUIFontForLanguage(.userFixedPitch, fontSize, nil)
+            ?? CTFontCreateWithName("Menlo" as CFString, fontSize, nil)
     }
 
-    private var charW: CGFloat { ("M" as NSString).size(withAttributes: [.font: uiFont]).width }
-    private var charH: CGFloat { uiFont.lineHeight }
+    private var charW: CGFloat {
+        let f = font
+        var char: UniChar = 77 // "M" — monospace, so any glyph gives the same advance
+        var glyph = CGGlyph()
+        guard CTFontGetGlyphsForCharacters(f, &char, &glyph, 1) else { return fontSize * 0.6 }
+        return CTFontGetAdvancesForGlyphs(f, .horizontal, &glyph, nil, 1)
+    }
+
+    private var charH: CGFloat {
+        let f = font
+        return CTFontGetAscent(f) + CTFontGetDescent(f) + CTFontGetLeading(f)
+    }
 
     private var cols: Int { grid.first?.count ?? 0 }
     private var rows: Int { grid.count }
@@ -36,12 +51,13 @@ struct CanvasView: View {
     }
 
     private func draw(in context: inout GraphicsContext) {
-        let font = Font(uiFont)
+        let swiftUIFont = Font(font)
+        let rowHeight = charH
         for r in 0..<rows {
             let line = String(grid[r])
             guard line.contains(where: { $0 != " " }) else { continue }
-            let text = Text(line).font(font).foregroundStyle(Theme.ink)
-            context.draw(text, at: CGPoint(x: 0, y: charH * CGFloat(r)), anchor: .topLeading)
+            let text = Text(line).font(swiftUIFont).foregroundStyle(Theme.ink)
+            context.draw(text, at: CGPoint(x: 0, y: rowHeight * CGFloat(r)), anchor: .topLeading)
         }
     }
 

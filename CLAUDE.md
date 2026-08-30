@@ -37,13 +37,16 @@ draw time, so the `<canvas>` repaints from the tokens with no JS change.
 
 ## iOS
 
-Native SwiftUI app in `ios/` (xcodegen). Rewritten from a WKWebView shell 2026-08-17 — Apple's
+Native SwiftUI app in `ios/` (xcodegen), **iOS and macOS** from one target via
+`supportedDestinations` since 2026-08-30. Rewritten from a WKWebView shell 2026-08-17 — Apple's
 Guideline 5.6 notice cited quality/completeness, and the 72-line shell was the finding. No web
 assets are bundled any more; `npm run build:ios` is no longer part of the iOS build.
 
 - `App/Engine.swift` — grid + undo/redo, ported function-for-function from `src/lib/engine.js`
 - `App/Presets.swift` — the same 23 templates as `src/lib/presets.js`
-- `App/CanvasView.swift` — SwiftUI `Canvas`, one Text draw per row (not per cell)
+- `App/CanvasView.swift` — SwiftUI `Canvas`, one Text draw per row (not per cell). Measures
+  with CoreText, not `UIFont`: `NSFont` has no `lineHeight`, so CTFont is the one metric API
+  that compiles on both platforms without a `#if`.
 - `App/Store.swift` — canvas persists to Application Support, survives relaunch
 - `Checks/main.swift` — the JS test suite ported as plain asserts
 
@@ -51,6 +54,12 @@ assets are bundled any more; `npm run build:ios` is no longer part of the iOS bu
 cd ios && xcodegen generate
 xcodebuild build -scheme Charwork-iOS -destination 'generic/platform=iOS Simulator' \
   -derivedDataPath /tmp/dd-charwork -skipPackagePluginValidation
+
+# macOS. No Mac provisioning profile exists for com.nulljosh.wiretext yet, so a signed
+# build needs -allowProvisioningUpdates; this compiles and runs it without one.
+xcodebuild build -scheme Charwork-iOS -destination 'platform=macOS' \
+  -derivedDataPath /tmp/dd-charwork-mac -skipPackagePluginValidation \
+  CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
 
 # engine self-check, no framework needed
 swiftc -o /tmp/wtcheck ios/App/Engine.swift ios/App/Presets.swift ios/Checks/main.swift && /tmp/wtcheck
@@ -62,6 +71,22 @@ sheet, and hardware-keyboard undo/redo (⌘Z / ⇧⌘Z).
 Keep `Engine.swift`/`Presets.swift` in sync with their `src/lib/` counterparts — the ports are
 deliberately line-comparable.
 
+## HTTP API + MCP
+
+Cloudflare Pages Functions in `functions/`, added 2026-08-30. `src/lib/tools.js` is the one
+definition both surfaces call — add tools there, never in a handler.
+
+- `GET /api/components`, `POST /api/place`, `POST /api/render`
+- `POST /mcp` — JSON-RPC, stateless, no SDK and no Durable Object
+
+Unlike `src/lib/webmcp.js` (stateful, drives the live canvas, has `undo`) these are pure
+transforms: wireframe in, wireframe out. That is what keeps them free of a database. Full
+detail in `docs/API.md`.
+
+```bash
+npx wrangler pages dev    # needs wrangler.toml's pages_build_output_dir, not `deploy dist`
+```
+
 ## Architecture
 
 - `state.grid: string[][]` — 100x50 2D char array
@@ -72,6 +97,6 @@ deliberately line-comparable.
 
 ## Notes
 
-- No backend, no external deps beyond React
+- No external deps beyond React; the backend is Pages Functions only, with no storage
 - Keyboard shortcuts: Ctrl+Z undo, Ctrl+Y redo (canvas must be focused)
 - Export writes `wireframe.txt` via Blob URL
