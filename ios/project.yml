@@ -38,6 +38,9 @@ targets:
         # Charwork.entitlements (was Wiretext.entitlements) existed since 08-03 but was never referenced here,
         # so xcodegen dropped it and every build shipped without it.
         CODE_SIGN_ENTITLEMENTS: Charwork.entitlements
+        # Per-SDK, not one shared file: the iOS file's `application-identifier` is not a
+        # valid macOS entitlement and makes Mac profile creation fail outright.
+        CODE_SIGN_ENTITLEMENTS[sdk=macosx*]: Charwork-macOS.entitlements
 
 schemes:
   Charwork-iOS:

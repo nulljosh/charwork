@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<!-- Required by the Mac App Store; inert on iOS, so one shared file still serves both
-	     destinations. Charwork writes only inside its own container, so no further
-	     sandbox exceptions are needed. -->
-	<key>com.apple.security.app-sandbox</key>
-	<true/>
 	<key>application-identifier</key>
 	<string>$(AppIdentifierPrefix)$(CFBundleIdentifier)</string>
 </dict>

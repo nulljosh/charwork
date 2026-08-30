@@ -65,6 +65,9 @@ xcodebuild build -scheme Charwork-iOS -destination 'platform=macOS' \
 swiftc -o /tmp/wtcheck ios/App/Engine.swift ios/App/Presets.swift ios/Checks/main.swift && /tmp/wtcheck
 ```
 
+Two entitlements files, split by SDK. A single shared file compiles fine but cannot SIGN a Mac
+build: `application-identifier` is not a valid macOS entitlement and profile creation fails.
+
 Native-only capabilities the web build cannot offer: on-device persistence, the system share
 sheet, and hardware-keyboard undo/redo (⌘Z / ⇧⌘Z).
 
