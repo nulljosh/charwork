@@ -7,9 +7,14 @@
     <meta name="description" content="Unicode wireframe design tool" />
   <meta name="apple-itunes-app" content="app-id=6794988951">
     <title>Charwork</title>
-  </head>
+    <link rel="manifest" href="/app/manifest.webmanifest">
+  <meta name="theme-color" content="#D97757">
+  <link rel="apple-touch-icon" href="/app/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+    <script>if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('/app/sw.js'));</script>
+</body>
 </html>
