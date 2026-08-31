@@ -62,10 +62,6 @@ Review submission `27425fb8-9404-42a0-88bf-ec85773ed696`, submitted 2026-08-03T1
 ## WKWebView shell (reviewed 2026-07-22)
 Not a gap — `CLAUDE.md` documents this as intentional ("app has no native API needs"). Unlike Books, this was a deliberate choice, not an oversight. Revisit only if wiretext ever needs a real native API. If it's ever ported anyway: no real blockers (grid/undo logic and 23 presets are plain data, map cleanly to SwiftUI) — could also resolve the still-open blank-white-screen sim bug above as a side effect.
 
-## Completed
-
-- [x] Ship a macOS version of Charwork. DONE 2026-08-30. iOS and macOS from one SwiftUI target with `supportedDestinations`, shared UI + state, CoreText for cross-platform text measurement. Fixed icon sizing and Info.plist category placement on both platforms. Added REST API and MCP server at charwork.heyitsmejosh.com. Did not submit due to 4.3(a) wave freeze.
-
 ## Decision 2026-08-04
 
 - [ ] Rename wiretext -> **Charwork** (approved 2026-08-04, deliberately parked - "we can work on it later", not urgent). Reason: current name was copied from the source idea. Charwork says what it is (character-grid canvas). Touches: repo name, Cloudflare Pages project, `wiretext.heyitsmejosh.com` DNS, App Store Connect record, in-app title/manifest. Do as one deliberate pass, not a drive-by. Rejected alternatives: Gridling, Plotline.
