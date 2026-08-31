@@ -214,3 +214,5 @@ portfolio. Deployed and live on both domains.
       give it more to do or let the canvas have the space.
 - [ ] The welcome modal's scrim is `rgba(0,0,0,0.6)` -- cold and heavy against
       the warm palette; a lighter warm scrim would suit.
+
+- Upload the refreshed App Store screenshots (`ios/screenshots/` in curvely, `screenshots/` in charwork) with the next version bump — the live listing still shows the pre-rebrand shots, and screenshots can only change on a new, editable version. 2026-08-31
