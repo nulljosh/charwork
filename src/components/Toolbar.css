@@ -28,7 +28,7 @@
 }
 
 .toolbar-search-input:focus {
-  border-color: var(--accent);
+  border-color: var(--link, var(--accent));
 }
 
 .toolbar-search-input::placeholder {

@@ -53,7 +53,7 @@
 }
 
 .inspector-value--green {
-  color: var(--accent);
+  color: var(--link, var(--accent));
 }
 
 .inspector-value--kbd {

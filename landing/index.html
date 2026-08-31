@@ -14,6 +14,7 @@
 <style>
 :root {
   --accent: #D97757;
+  --link: #9e5740;
   --accent-deep: #B45F42;   /* white clears 4.5:1 on this, not on --accent */
   --accent-soft: #F0EEE6;
   --bg: #FAF9F5;
@@ -27,7 +28,8 @@
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #1F1E1D; --bg2: #262624; --text: #F5F4EF;
+    --bg: #1F1E1D;
+    --link: #E08A6B; --bg2: #262624; --text: #F5F4EF;
     --text2: rgba(245,244,239,0.60); --border: rgba(245,244,239,0.14);
     --accent: #E08A6B; --accent-soft: #262624;
   }

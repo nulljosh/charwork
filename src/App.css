@@ -174,7 +174,7 @@
   }
 
   .mobile-bar-btn--add {
-    color: var(--accent);
+    color: var(--link, var(--accent));
   }
 
   .mobile-bar-btn--add:hover,
