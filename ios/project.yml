@@ -9,8 +9,8 @@ options:
 settings:
   base:
     SWIFT_VERSION: "5.9"
-    MARKETING_VERSION: "1.1.0"
-    CURRENT_PROJECT_VERSION: "202608180348"
+    MARKETING_VERSION: "1.1.1"
+    CURRENT_PROJECT_VERSION: "202608310815"
 
 targets:
   Charwork-iOS:
