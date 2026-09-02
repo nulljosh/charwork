@@ -3,7 +3,9 @@
 # Charwork
 ![version](https://img.shields.io/badge/version-v1.1.0-blue)
 
-Unicode wireframe design tool. Click components from the palette, place them on a monospace character canvas, export as plain text.
+Wireframes made of characters.
+
+Pick a component. Stamp it on a monospace grid. Copy the result as plain text. It pastes into a commit message, a code comment, a chat. No image, no export dialog, no design tool.
 
 ## Run
 
@@ -14,11 +16,11 @@ npm install && npm run dev
 ## Features
 
 - 23 component presets: Button, Input, Select, Checkbox, Radio, Toggle, Table, Modal, Browser, Card, Navbar, Tabs, Progress, Icon, Image, Divider, Alert, Breadcrumb, Avatar, List, Stepper, Rating, Skeleton
-- Click-to-place on a 100x50 character grid canvas
-- Hover preview before placing
-- Export as `.txt` or copy to clipboard
-- Undo / Redo (50 steps)
-- Zinc dark design (Inter, indigo accents)
+- Click to place on a 100×50 character grid
+- See it before you place it
+- Export `.txt` or copy to clipboard
+- Undo and redo, 50 steps deep
+- Zinc dark theme, Inter, indigo accents
 
 ## Architecture
 
@@ -26,7 +28,7 @@ npm install && npm run dev
 
 ## Stack
 
-Vite 6 + React 19. No external UI libraries.
+Vite 6 and React 19. No UI libraries.
 
 ## License
 
@@ -42,7 +44,6 @@ MIT 2026 Joshua Trommel
 
 ## API and agent tools
 
-[`docs/API.md`](docs/API.md) documents the HTTP surface (where there is one) and
-the WebMCP tools this app registers on `document.modelContext`, so an in-browser
-agent can drive it. Tools are split into read-only, reversible writes, and the
-few that require human confirmation.
+An agent can drive this app. [`docs/API.md`](docs/API.md) lists the HTTP surface, where there
+is one, and the WebMCP tools registered on `document.modelContext`. Tools come in three kinds:
+read-only, writes you can undo, and the few that ask a human first.
