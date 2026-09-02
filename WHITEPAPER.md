@@ -2,23 +2,23 @@
 
 **v1.1.0** | August 2026
 
-Charwork is a Unicode wireframe design tool: click a component from the
-palette, stamp it onto a monospace character grid, and export the mockup as
-plain text. Wireframes that paste into a commit message, a code comment, or a
-chat. Live at
+Wireframes made of characters.
+
+Pick a component, stamp it on a monospace grid, copy the result as text. It pastes
+into a commit message, a code comment, a chat. No image anywhere. Live at
 [wiretext.heyitsmejosh.com](https://wiretext.heyitsmejosh.com).
 
 ## Core Mechanic: The Character Grid
 
-The document is `state.grid: string[][]` — a 100×50 2D array of characters.
+The document is `state.grid: string[][]`, a 100×50 2D array of characters.
 Everything is a pure function over that array:
 
-- **Components** — 23 presets (`src/lib/presets.js`), Button through Skeleton,
+- **Components**: 23 presets (`src/lib/presets.js`), Button through Skeleton,
   each a small template of box-drawing characters.
-- **Stamping** — `stampComponent(grid, template, col, row)` returns a new grid
+- **Stamping**: `stampComponent(grid, template, col, row)` returns a new grid
   with the template written in; the reducer never mutates. Immutability makes
   undo/redo (50 steps) a matter of keeping old grids.
-- **Export** — `gridToText(grid)` joins rows into the final plain-text
+- **Export**: `gridToText(grid)` joins rows into the final plain-text
   wireframe for `.txt` download or clipboard copy.
 
 The canvas (`src/components/Canvas.jsx`) renders the grid to an HTML canvas in
@@ -49,4 +49,4 @@ Remaining before App Store submission: generate an AppIcon asset catalog from
 ## Privacy
 
 Fully client-side. No accounts, no network calls, no storage beyond the
-in-memory grid — close the tab and the document is gone unless exported.
+in-memory grid, close the tab and the document is gone unless exported.

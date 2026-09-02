@@ -1,6 +1,6 @@
 # Charwork web
 
-v1.1.0 — Unicode wireframe tool. Vite + React 19. Warm paper design.
+v1.1.0, Unicode wireframe tool. Vite + React 19. Warm paper design.
 
 ## Run
 
@@ -11,12 +11,12 @@ npm run build                # production build
 
 ## Key Files
 
-- `src/lib/presets.js` — 23 component templates (Button through Skeleton)
-- `src/lib/engine.js` — grid state, stampComponent, undo/redo, pxToCell
-- `src/App.jsx` — root reducer (SELECT_PRESET, PLACE_COMPONENT, UNDO, REDO, CLEAR)
-- `src/components/Canvas.jsx` — HTML canvas, monospace char grid, hover preview, click-to-place
-- `src/components/Toolbar.jsx` — component palette grouped by category
-- `src/components/Inspector.jsx` — cursor coords, preset preview, history counts
+- `src/lib/presets.js`: 23 component templates (Button through Skeleton)
+- `src/lib/engine.js`: grid state, stampComponent, undo/redo, pxToCell
+- `src/App.jsx`: root reducer (SELECT_PRESET, PLACE_COMPONENT, UNDO, REDO, CLEAR)
+- `src/components/Canvas.jsx`: HTML canvas, monospace char grid, hover preview, click-to-place
+- `src/components/Toolbar.jsx`: component palette grouped by category
+- `src/components/Inspector.jsx`: cursor coords, preset preview, history counts
 
 ## Design
 
@@ -38,17 +38,17 @@ draw time, so the `<canvas>` repaints from the tokens with no JS change.
 ## iOS
 
 Native SwiftUI app in `ios/` (xcodegen), **iOS and macOS** from one target via
-`supportedDestinations` since 2026-08-30. Rewritten from a WKWebView shell 2026-08-17 — Apple's
+`supportedDestinations` since 2026-08-30. Rewritten from a WKWebView shell 2026-08-17, Apple's
 Guideline 5.6 notice cited quality/completeness, and the 72-line shell was the finding. No web
 assets are bundled any more; `npm run build:ios` is no longer part of the iOS build.
 
-- `App/Engine.swift` — grid + undo/redo, ported function-for-function from `src/lib/engine.js`
-- `App/Presets.swift` — the same 23 templates as `src/lib/presets.js`
-- `App/CanvasView.swift` — SwiftUI `Canvas`, one Text draw per row (not per cell). Measures
+- `App/Engine.swift`: grid + undo/redo, ported function-for-function from `src/lib/engine.js`
+- `App/Presets.swift`: the same 23 templates as `src/lib/presets.js`
+- `App/CanvasView.swift`: SwiftUI `Canvas`, one Text draw per row (not per cell). Measures
   with CoreText, not `UIFont`: `NSFont` has no `lineHeight`, so CTFont is the one metric API
   that compiles on both platforms without a `#if`.
-- `App/Store.swift` — canvas persists to Application Support, survives relaunch
-- `Checks/main.swift` — the JS test suite ported as plain asserts
+- `App/Store.swift`: canvas persists to Application Support, survives relaunch
+- `Checks/main.swift`: the JS test suite ported as plain asserts
 
 ```bash
 cd ios && xcodegen generate
@@ -71,16 +71,16 @@ build: `application-identifier` is not a valid macOS entitlement and profile cre
 Native-only capabilities the web build cannot offer: on-device persistence, the system share
 sheet, and hardware-keyboard undo/redo (⌘Z / ⇧⌘Z).
 
-Keep `Engine.swift`/`Presets.swift` in sync with their `src/lib/` counterparts — the ports are
+Keep `Engine.swift`/`Presets.swift` in sync with their `src/lib/` counterparts, the ports are
 deliberately line-comparable.
 
 ## HTTP API + MCP
 
 Cloudflare Pages Functions in `functions/`, added 2026-08-30. `src/lib/tools.js` is the one
-definition both surfaces call — add tools there, never in a handler.
+definition both surfaces call, add tools there, never in a handler.
 
 - `GET /api/components`, `POST /api/place`, `POST /api/render`
-- `POST /mcp` — JSON-RPC, stateless, no SDK and no Durable Object
+- `POST /mcp`: JSON-RPC, stateless, no SDK and no Durable Object
 
 Unlike `src/lib/webmcp.js` (stateful, drives the live canvas, has `undo`) these are pure
 transforms: wireframe in, wireframe out. That is what keeps them free of a database. Full
@@ -92,9 +92,9 @@ npx wrangler pages dev    # needs wrangler.toml's pages_build_output_dir, not `d
 
 ## Architecture
 
-- `state.grid: string[][]` — 100x50 2D char array
-- `stampComponent(grid, template, col, row)` — immutable stamp
-- `gridToText(grid)` — joins for export/copy
+- `state.grid: string[][]`: 100x50 2D char array
+- `stampComponent(grid, template, col, row)`: immutable stamp
+- `gridToText(grid)`: joins for export/copy
 - Canvas renders via `<canvas>` 2D context (not DOM/pre)
 - Undo stack: 50 steps max, stored as grid snapshots
 
