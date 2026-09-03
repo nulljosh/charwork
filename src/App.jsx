@@ -82,7 +82,7 @@ export default function App() {
   const [mobileSheet, setMobileSheet] = useState(null); // null | 'components' | 'inspector' | 'more'
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem('wiretext-theme');
-    return saved === 'dark';
+    return saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
   const [showTour, setShowTour] = useState(() => !localStorage.getItem('wiretext-tour-seen'));
   const dismissTour = useCallback(() => {
