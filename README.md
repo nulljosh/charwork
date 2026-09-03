@@ -47,3 +47,15 @@ MIT 2026 Joshua Trommel
 An agent can drive this app. [`docs/API.md`](docs/API.md) lists the HTTP surface, where there
 is one, and the WebMCP tools registered on `document.modelContext`. Tools come in three kinds:
 read-only, writes you can undo, and the few that ask a human first.
+
+## Apple Watch
+
+Standalone watchOS companion in `watchos/` (xcodegen), added 2026-09-02. Same 23 presets and
+grid engine as the iOS app — `Models/Engine.swift` and `Models/Presets.swift` are ports of
+`ios/App/Engine.swift`/`Presets.swift`, sized down to a 28x14 grid to fit a watch face. It has
+no backend to call and no App Group shared with the iPhone app, so it's a fully independent
+wireframe tool with its own on-device persistence, not a viewer for iPhone data.
+
+```bash
+cd watchos && xcodegen generate
+```
