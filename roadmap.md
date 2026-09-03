@@ -1,5 +1,12 @@
 # Wiretext Roadmap
 
+- [ ] Verify iPad layout visually on simulator -- 2026-09-02. Code review found no
+  structural iPad issue (full-bleed canvas tool, `TARGETED_DEVICE_FAMILY = "1,2"` already
+  set, no NavigationStack/list-detail pattern to convert), but this machine's Xcode only
+  has the iOS 26.5 SDK with the iOS 26.2 runtime downloaded, so `xcodebuild` won't
+  recognize any simulator destination even by explicit UDID. Needs the matching platform
+  component installed, then a screenshot check (portrait + landscape).
+
 ## App Review rejection reason, READ FROM RESOLUTION CENTER 2026-08-12
 
 **Guideline 5.6, Developer Code of Conduct, Review Suspended.** Not an app-specific
