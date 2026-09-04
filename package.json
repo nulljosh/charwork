@@ -2,6 +2,7 @@
   "name": "charwork",
   "version": "1.1.0",
   "description": "Wireframes made of characters. Pick a component, stamp it on a monospace grid, copy as plain text.",
+  "keywords": ["wireframes", "ascii-art", "prototyping", "monospace"],
   "private": true,
   "type": "module",
   "scripts": {
