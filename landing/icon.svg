@@ -7,7 +7,7 @@
   <rect x="40" y="70" width="120" height="16" rx="3" fill="none" stroke="#d1d5db" stroke-width="1.5"/>
   <text x="100" y="82" font-family="-apple-system,sans-serif" font-size="10" fill="#6e6e73" text-anchor="middle">[____________]</text>
   <rect x="40" y="96" width="120" height="8" rx="4" fill="#e5e5ea"/>
-  <rect x="40" y="96" width="72" height="8" rx="4" fill="#0071e3"/>
+  <rect x="40" y="96" width="72" height="8" rx="4" fill="#85144b"/>
   <rect x="40" y="116" width="120" height="52" rx="6" fill="none" stroke="#d1d5db" stroke-width="1.5"/>
   <text x="48" y="128" font-family="monospace" font-size="9" fill="#6e6e73">┌──────────┬──────┐</text>
   <text x="48" y="140" font-family="monospace" font-size="9" fill="#6e6e73">│ Column A │  B   │</text>
