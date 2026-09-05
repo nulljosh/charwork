@@ -38,6 +38,8 @@ MIT 2026 Joshua Trommel
 
 [wiretext.heyitsmejosh.com](https://wiretext.heyitsmejosh.com)
 
+**Terminal:** `swift build && ./.build/debug/charwork-tui` — see [tui/](tui/)
+
 ## Whitepaper
 
 [Technical whitepaper](WHITEPAPER.md)
