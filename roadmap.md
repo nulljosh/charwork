@@ -223,3 +223,6 @@ portfolio. Deployed and live on both domains.
       the warm palette; a lighter warm scrim would suit.
 
 - Upload the refreshed App Store screenshots (`ios/screenshots/` in curvely, `screenshots/` in charwork) with the next version bump, the live listing still shows the pre-rebrand shots, and screenshots can only change on a new, editable version. 2026-08-31
+
+## TUI pilot (2026-09-05)
+- `charwork-tui` SwiftPM target (SwiftTUI). `swift build && ./.build/debug/charwork-tui` fetches /api/components and lists the palette with ASCII templates. Needs a real TTY.

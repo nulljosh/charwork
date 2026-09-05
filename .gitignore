@@ -16,3 +16,4 @@ dist/
 
 # wrangler pages dev scratch state
 .wrangler/
+.build/
