@@ -10,7 +10,12 @@
 <meta property="og:title" content="Charwork — wireframes made of characters">
 <meta property="og:description" content="Sketch interface wireframes on a character grid, then export them as plain text you can paste anywhere.">
 <meta property="og:type" content="website">
+<script>
+// ponytail: UA sniff, good enough for a mockup. iphone is the default.
+(function(u,d){d=/Android/.test(u)?'android':/iPhone|iPad/.test(u)?'iphone':/Windows/.test(u)?'windows':/Mac/.test(u)?'mac':'iphone';document.documentElement.dataset.device=d})(navigator.userAgent);
+</script>
 <link rel="icon" href="icon.svg">
+<link rel="stylesheet" href="devices.css">
 <style>
 :root {
   --accent: #D97757;
@@ -85,6 +90,14 @@ h1 { font-size: clamp(2.1rem, 5vw, 3.1rem); margin: 1.25rem 0 0.75rem; letter-sp
 .btn-outline { border-color: var(--border); color: var(--text); }
 .sample { max-width: 34rem; margin: 2.5rem auto 0; text-align: left; background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; overflow-x: auto; }
 .sample pre { margin: 0; font-family: ui-monospace, 'SF Mono', Monaco, monospace; font-size: 0.82rem; line-height: 1; color: var(--text); }
+.device-mac, .device-windows { --device-w: 480px; }
+.demo { display: flex; flex-direction: column; height: 100%; background: var(--bg2); }
+.demo-toolbar { display: flex; flex-wrap: wrap; gap: 0.35rem; padding: 0.6rem; border-bottom: 1px solid var(--border); }
+.demo-toolbar button { font: inherit; font-size: 0.78rem; padding: 0.3rem 0.55rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg); color: var(--text); cursor: pointer; }
+.demo-toolbar button.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+.demo-grid { flex: 1; margin: 0; padding: 0.85rem; font-family: ui-monospace, 'SF Mono', Monaco, monospace; font-size: 0.68rem; line-height: 1.15; color: var(--text); background: var(--bg); cursor: crosshair; user-select: none; overflow: auto; white-space: pre; }
+.demo-hint { padding: 0.4rem 0.85rem; font-size: 0.72rem; color: var(--text2); border-top: 1px solid var(--border); }
+.demo-caption { font-size: 0.9rem; color: var(--text2); margin: 1rem 0 0; }
 .features { padding: 4rem 0; }
 h2 { font-size: 1.75rem; text-align: center; margin: 0 0 2.5rem; letter-spacing: -0.01em; }
 .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
@@ -108,18 +121,16 @@ footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color:
       <a href="https://apps.apple.com/app/id6794988951" class="btn btn-outline">App Store</a>
       <a href="https://github.com/nulljosh/charwork" class="btn btn-outline">Source</a>
     </div>
-    <div class="sample"><pre>┌────────────────────────────┐
-│  Sign in                   │
-├────────────────────────────┤
-│  Email                     │
-│  ┌──────────────────────┐  │
-│  │                      │  │
-│  └──────────────────────┘  │
-│  [x] Remember me           │
-│  ┌──────────┐              │
-│  │ Continue │              │
-│  └──────────┘              │
-└────────────────────────────┘</pre></div>
+    <div class="device device-mac" id="demoFrame" data-title="Charwork">
+      <div class="device-screen">
+        <div class="demo">
+          <div class="demo-toolbar" id="demoToolbar"></div>
+          <pre class="demo-grid" id="demoGrid"></pre>
+          <div class="demo-hint">Pick a component, click the grid to place it. ⌘Z / ⌘⇧Z to undo/redo.</div>
+        </div>
+      </div>
+    </div>
+    <p class="demo-caption">This is the real engine — 20×12 of the app's 100×50 grid.</p>
   </div>
 </section>
 <section class="features">
@@ -233,6 +244,62 @@ footer { padding: 2.5rem 0 3.5rem; text-align: center; font-size: 0.9rem; color:
     });
     wall.appendChild(col);
   }
+})();
+</script>
+
+<script src="engine.js"></script>
+<script src="presets.js"></script>
+<script>
+// Live demo: the same engine.js/presets.js the app ships, just not bundled.
+(function () {
+  var COLS = 20, ROWS = 12;
+  var grid = createGrid(COLS, ROWS), history = [], future = [];
+  var picks = ['button', 'input', 'checkbox', 'card', 'navbar'];
+  var selected = picks[0];
+  var toolbar = document.getElementById('demoToolbar');
+  var gridEl = document.getElementById('demoGrid');
+  if (!toolbar || !gridEl) return;
+
+  picks.forEach(function (id) {
+    var preset = getPreset(id);
+    if (!preset) return;
+    var b = document.createElement('button');
+    b.textContent = preset.label;
+    b.dataset.id = id;
+    b.className = id === selected ? 'active' : '';
+    b.addEventListener('click', function () {
+      selected = id;
+      toolbar.querySelectorAll('button').forEach(function (x) { x.classList.toggle('active', x.dataset.id === id); });
+    });
+    toolbar.appendChild(b);
+  });
+
+  function render() { gridEl.textContent = gridToText(grid); }
+  function place(col, row) {
+    var preset = getPreset(selected);
+    if (!preset) return;
+    history.push(cloneGrid(grid)); future = [];
+    grid = stampComponent(grid, preset.template, col, row);
+    render();
+  }
+  gridEl.addEventListener('click', function (e) {
+    var r = gridEl.getBoundingClientRect();
+    var cs = getComputedStyle(gridEl);
+    var padL = parseFloat(cs.paddingLeft), padT = parseFloat(cs.paddingTop);
+    var contentW = gridEl.clientWidth - padL - parseFloat(cs.paddingRight);
+    var contentH = gridEl.clientHeight - padT - parseFloat(cs.paddingBottom);
+    var cell = pxToCell(e.clientX - r.left - padL, e.clientY - r.top - padT, contentW / COLS, contentH / ROWS);
+    if (cell.col >= 0 && cell.col < COLS && cell.row >= 0 && cell.row < ROWS) place(cell.col, cell.row);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!(e.metaKey || e.ctrlKey)) return;
+    if (e.key.toLowerCase() === 'z' && !e.shiftKey && history.length) {
+      future.push(cloneGrid(grid)); grid = history.pop(); render(); e.preventDefault();
+    } else if ((e.key.toLowerCase() === 'z' && e.shiftKey || e.key.toLowerCase() === 'y') && future.length) {
+      history.push(cloneGrid(grid)); grid = future.pop(); render(); e.preventDefault();
+    }
+  });
+  render();
 })();
 </script>
 
