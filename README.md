@@ -7,6 +7,12 @@ Wireframes made of characters.
 
 Pick a component. Stamp it on a monospace grid. Copy the result as plain text. It pastes into a commit message, a code comment, a chat. No image, no export dialog, no design tool.
 
+## Screenshots
+
+<p>
+<img src="screenshots/ios/en-US/01-canvas-65.png" width="300" alt="Charwork">
+</p>
+
 ## Run
 
 ```bash
